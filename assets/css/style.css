@@ -1,0 +1,69 @@
+/*css untuk homepage sebelum login*/
+
+.nav-color{ /* mengubah warna navbar */
+    background:#0C7B93;
+    border-color : #0C7B93;
+    opacity: 0.76;
+}
+
+.navbar-header .nav-txt-color {/* mengubah warna navbar brand menjadi putih */
+    color:white;
+}
+
+.navbar-inverse .nav-txt-color li a{/* mengubah warna text di navbar menjadi putih */
+    color:white;
+}
+
+.navbar-inverse .nav-con{ /* mengatur jarak margin di navbar */
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+.container-body{ /* mengatur background homepage menggunakan container */
+    background:url('../css/img/background-bayi.jpg');
+    width: 100%;
+}
+
+.section-color{ /* mengatur atribut section (isi dari homepage) */
+    background:#BABABA;
+    opacity:0.74;
+    width:85%;
+    height: 95%;
+    padding:2em;
+    color:black;
+    border-radius:1em;
+    margin-bottom:10%;
+    margin-top:5%;
+}
+
+.side{ /* container dari tulisan daftar sekarang dan button */
+    width:550px;
+    height:auto;
+    align-content: center;
+}
+
+.side h3{ /*atribut tulisan mulai daftar sekarang*/
+    display:inline-block;
+    margin:0;
+}
+
+.side button{/* attribut button daftar */
+    float:right;
+}
+
+footer{ /*mengatur footer*/
+    padding:1em 1em 0.5em 1em;
+    background:#404244;
+    opacity:0.83;
+}
+
+footer p{/* mengatur tulisan di footer */
+    text-align:center;
+    color: white;
+}
+
+/*css pasien*/
+
+/*css dokter*/
+
+/*css pengelola */
