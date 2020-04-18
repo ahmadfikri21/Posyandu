@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 03:34 PM
+-- Generation Time: Apr 18, 2020 at 03:26 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -46,6 +46,18 @@ CREATE TABLE `dokter` (
   `username` varchar(70) NOT NULL,
   `password` varchar(40) NOT NULL,
   `no_telp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `informasi`
+--
+
+CREATE TABLE `informasi` (
+  `id_informasi` int(11) NOT NULL,
+  `isi` varchar(255) NOT NULL,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -155,6 +167,12 @@ ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dokter`);
 
 --
+-- Indexes for table `informasi`
+--
+ALTER TABLE `informasi`
+  ADD PRIMARY KEY (`id_informasi`);
+
+--
 -- Indexes for table `jadwal_praktek`
 --
 ALTER TABLE `jadwal_praktek`
@@ -201,6 +219,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `antrian`
   MODIFY `id_antrian` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `informasi`
+--
+ALTER TABLE `informasi`
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `jadwal_praktek`
