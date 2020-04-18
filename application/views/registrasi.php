@@ -31,7 +31,7 @@
                         <hr>
 
                         <div class="text-center">
-                            <a class="small" href="<?php echo base_url("login"); ?>">Sudah punya akun? login disini!</a>
+                            <a class="small" href="<?php echo base_url(); ?>Homepage/login">Sudah punya akun? login disini!</a>
                         </div>
                     </div>
                 </div>

@@ -6,9 +6,10 @@ class Homepage extends CI_Controller
     public function index()
     {
         $this->load->view("templates/headerHome");
-        $this->load->view("login");
+        $this->load->view("homepage");
         $this->load->view("templates/footerHome");
     }
+
     public function login()
     {
         $this->load->view("templates/headerHome");

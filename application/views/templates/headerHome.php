@@ -16,6 +16,6 @@
                 <ul class="nav navbar-nav nav-txt-color navbar-right">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Sign In</a></li>
+                    <li><a href="<?php echo base_url() ?>Homepage/login">Sign In</a></li>
                 </ul>
         </nav>
