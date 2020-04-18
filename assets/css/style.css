@@ -65,5 +65,32 @@ footer p{/* mengatur tulisan di footer */
 /*css pasien*/
 
 /*css dokter*/
+.footer-dk{
+    text-align:center;
+    background-color: white;
+    opacity: 1.0;
+}
+.footer-dk p{
+    color: black ;
+    opacity: 48%;
+    
+}
+.nav-color-dk{
+    background-color: white;
+    border-color: white;
+}
+.nav-logo-dk{
+        width: 40px;
+        height: 40px;
+}
+.nav-txt-color-dk{
+    color: 33383D;
+    
+}
+.container-dk{
+    background:url('../css/img/Background_dokter_1.png');
+    height: 90%;
+}
+
 
 /*css pengelola */
