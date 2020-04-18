@@ -1,1 +1,2 @@
-ini hanyalah pecobaan push
+ini hanyalah pecobaan push percobaan dari dharma 
+git.openChange;
