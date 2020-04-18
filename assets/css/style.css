@@ -64,7 +64,7 @@ footer p{/* mengatur tulisan di footer */
 
 /*css pasien*/
 
-.h1-panel{
+.h1-panel{ /*style panel h1 riwayat*/
     background:#fff;
     opacity: 0.83;
     width:50%;
@@ -74,7 +74,7 @@ footer p{/* mengatur tulisan di footer */
     margin-bottom:1em;
 }
 
-.riwayat-panel{
+.riwayat-panel{ /*style panel riwayat*/
     background:#fff;
     opacity: 0.83;
     width:100%;
@@ -85,15 +85,16 @@ footer p{/* mengatur tulisan di footer */
     margin-top:1em;
 }
 
-.clear{
-    clear:both;
-}
-
-.list-riwayat{
+.list-riwayat{/*style list riwayat*/
     border:1px solid black;
     border-radius:10px;
     padding:1em;
 }
+
+.list-riwayat h3{
+    font-weight: bold;
+}
+
 /*css dokter*/
 
 /*css pengelola */
