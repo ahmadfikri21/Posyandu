@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2020 at 03:26 PM
+-- Generation Time: Apr 19, 2020 at 04:46 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -48,6 +48,13 @@ CREATE TABLE `dokter` (
   `no_telp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `dokter`
+--
+
+INSERT INTO `dokter` (`id_dokter`, `nama`, `username`, `password`, `no_telp`) VALUES
+('DK001', 'Rusdi', 'rusdi123', '123', 723523451);
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +92,14 @@ CREATE TABLE `pasien` (
   `tgl_lahir` date NOT NULL,
   `kategori` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`id_pasien`, `nama`, `tanggal`, `jam_praktek`, `tgl_lahir`, `kategori`) VALUES
+(1, 'Ahmad Fikri', '2020-04-01', '10.00', '2020-03-09', 'Umum'),
+(2, 'Andi', '2020-04-08', '13.00', '2020-01-20', 'Anak');
 
 -- --------------------------------------------------------
 
@@ -130,8 +145,17 @@ CREATE TABLE `riwayat` (
   `id_riwayat` int(11) NOT NULL,
   `id_pasien` int(11) NOT NULL,
   `id_dokter` varchar(20) NOT NULL,
-  `hasil_pemeriksaan` varchar(255) NOT NULL
+  `hasil_pemeriksaan` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `riwayat`
+--
+
+INSERT INTO `riwayat` (`id_riwayat`, `id_pasien`, `id_dokter`, `hasil_pemeriksaan`) VALUES
+(1, 1, 'DK001', 'Sangat Bagus Sehat\r\n'),
+(2, 2, 'DK001', '\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et lectus purus. Proin a quam dolor. Donec dapibus nulla elementum mauris hendrerit luctus. Suspendisse aliquam lectus arcu, at mollis ex porta ac. Nullam at velit id nisl mattis sagittis vitae at arcu. Duis sed malesuada ligula, vel facilisis nunc. Donec vulputate neque velit, id ullamcorper quam placerat vel. Duis sed est finibus, laoreet ipsum faucibus, convallis diam. Curabitur mollis mollis erat, vitae faucibus tellus dapibus in. Quisque a nibh bibendum, molestie turpis quis, venenatis neque. Morbi finibus neque id nisi bibendum commodo. Vivamus ac cursus erat.\r\n\r\nAenean sem nibh, maximus nec odio a, aliquam consectetur dui. Nam nec mi vel neque vehicula vulputate suscipit sed libero. Vestibulum auctor orci nec eros finibus convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et dictum enim. Maecenas massa nisl, posuere in eros in, condimentum feugiat ligula. Phasellus ut placerat erat.\r\n\r\nEtiam facilisis eros vel justo gravida tincidunt. Duis ac felis semper ligula vestibulum facilisis. Nulla vel felis diam. Sed turpis nulla, cursus quis lacinia nec, tempus non erat. Nulla metus metus, cursus vitae dui sit amet, interdum laoreet felis. Proin sagittis quam in turpis convallis, eget dignissim odio porttitor. Donec nunc augue, fringilla eu odio et, auctor mollis massa. In sollicitudin metus at velit accumsan, sed tincidunt tellus gravida. Vivamus vestibulum, ante quis commodo venenatis, eros felis varius ipsum, ut pulvinar est dui eu est. Aenean congue, velit ac condimentum accumsan, elit lacus finibus quam, a dapibus ex libero vitae lorem. Sed dictum nisl pharetra, viverra urna quis, vehicula dui. Proin at consectetur lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\r\n\r\nFusce malesuada ante eu mauris dapibus, vel dictum felis dapibus. Nulla eget pharetra arcu. Nulla porttitor cursus pulvinar. Suspendisse potenti. Curabitur vulputate mollis auctor. Sed malesuada lorem vitae justo tincidunt, at euismod leo vulputate. Morbi porttitor dictum dui, in ullamcorper ligula vehicula quis. Phasellus eu ex felis. In vehicula odio nisl, eu mollis dolor molestie vel. Donec elementum fringilla vulputate. Aenean auctor, ex cursus tincidunt venenatis, nisl nisl varius lacus, sed imperdiet ipsum nisl ac tortor. Phasellus commodo malesuada lacus sit amet sagittis. Nam purus arcu, fermentum in leo vel, volutpat tempor urna. Mauris id arcu eros.\r\n\r\nPhasellus mattis, mauris eget pellentesque ornare, nunc sapien pretium nunc, vitae aliquet velit nisi vel nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam leo libero, lobortis ac porta sed, rhoncus sit amet tortor. Nulla vitae suscipit massa, ut feugiat erat. Aenean sodales sapien sed sapien interdum tristique. Proin tempus est et ipsum tincidunt, eu maximus ipsum placerat. Aenean porta viverra odio vitae aliquet. Quisque nec purus dictum, pharetra lacus vel, varius erat. Cras at velit dignissim nisl finibus suscipit. Nulla consectetur sodales nisi id eleifend. Donec tincidunt auctor leo eget euismod.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et lectus purus. Proin a quam dolor. Donec dapibus nulla elementum mauris hendrerit luctus. Suspendisse aliquam lectus arcu, at mollis ex porta ac. Nullam at velit id nisl mattis sagittis vitae at arcu. Duis sed malesuada ligula, vel facilisis nunc. Donec vulputate neque velit, id ullamcorper quam placerat vel. Duis sed est finibus, laoreet ipsum faucibus, convallis diam. Curabitur mollis mollis erat, vitae faucibus tellus dapibus in. Quisque a nibh bibendum, molestie turpis quis, venenatis neque. Morbi finibus neque id nisi bibendum commodo. Vivamus ac cursus erat.\r\n\r\nAenean sem nibh, maximus nec odio a, aliquam consectetur dui. Nam nec mi vel neque vehicula vulputate suscipit sed libero. Vestibulum auctor orci nec eros finibus convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et dictum enim. Maecenas massa nisl, posuere in eros in, condimentum feugiat ligula. Phasellus ut placerat erat.\r\n\r\nEtiam facilisis eros vel justo gravida tincidunt. Duis ac felis semper ligula vestibulum facilisis. Nulla vel felis diam. Sed turpis nulla, cursus quis lacinia nec, tempus non erat. Nulla metus metus, cursus vitae dui sit amet, interdum laoreet felis. Proin sagittis quam in turpis convallis, eget dignissim odio porttitor. Donec nunc augue, fringilla eu odio et, auctor mollis massa. In sollicitudin metus at velit accumsan, sed tincidunt tellus gravida. Vivamus vestibulum, ante quis commodo venenatis, eros felis varius ipsum, ut pulvinar est dui eu est. Aenean congue, velit ac condimentum accumsan, elit lacus finibus quam, a dapibus ex libero vitae lorem. Sed dictum nisl pharetra, viverra urna quis, vehicula dui. Proin at consectetur lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\r\n\r\nFusce malesuada ante eu mauris dapibus, vel dictum felis dapibus. Nulla eget pharetra arcu. Nulla porttitor cursus pulvinar. Suspendisse potenti. Curabitur vulputate mollis auctor. Sed malesuada lorem vitae justo tincidunt, at euismod leo vulputate. Morbi porttitor dictum dui, in ullamcorper ligula vehicula quis. Phasellus eu ex felis. In vehicula odio nisl, eu mollis dolor molestie vel. Donec elementum fringilla vulputate. Aenean auctor, ex cursus tincidunt venenatis, nisl nisl varius lacus, sed imperdiet ipsum nisl ac tortor. Phasellus commodo malesuada lacus sit amet sagittis. Nam purus arcu, fermentum in leo vel, volutpat tempor urna. Mauris id arcu eros.\r\n\r\nPhasellus mattis, mauris eget pellentesque ornare, nunc sapien pretium nunc, vitae aliquet velit nisi vel nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam leo libero, lobortis ac porta sed, rhoncus sit amet tortor. Nulla vitae suscipit massa, ut feugiat erat. Aenean sodales sapien sed sapien interdum tristique. Proin tempus est et ipsum tincidunt, eu maximus ipsum placerat. Aenean porta viverra odio vitae aliquet. Quisque nec purus dictum, pharetra lacus vel, varius erat. Cras at velit dignissim nisl finibus suscipit. Nulla consectetur sodales nisi id eleifend. Donec tincidunt auctor leo eget euismod.\r\n'),
+(3, 1, 'DK001', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et lectus purus. Proin a quam dolor. Donec dapibus nulla elementum mauris hendrerit luctus. Suspendisse aliquam lectus arcu, at mollis ex porta ac. Nullam at velit id nisl mattis sagittis vitae at arcu. Duis sed malesuada ligula, vel facilisis nunc. Donec vulputate neque velit, id ullamcorper quam placerat vel. Duis sed est finibus, laoreet ipsum faucibus, convallis diam. Curabitur mollis mollis erat, vitae faucibus tellus dapibus in. Quisque a nibh bibendum, molestie turpis quis, venenatis neque. Morbi finibus neque id nisi bibendum commodo. Vivamus ac cursus erat.\r\n\r\nAenean sem nibh, maximus nec odio a, aliquam consectetur dui. Nam nec mi vel neque vehicula vulputate suscipit sed libero. Vestibulum auctor orci nec eros finibus convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et dictum enim. Maecenas massa nisl, posuere in eros in, condimentum feugiat ligula. Phasellus ut placerat erat.\r\n\r\nEtiam facilisis eros vel justo gravida tincidunt. Duis ac felis semper ligula vestibulum facilisis. Nulla vel felis diam. Sed turpis nulla, cursus quis lacinia nec, tempus non erat. Nulla metus metus, cursus vitae dui sit amet, interdum laoreet felis. Proin sagittis quam in turpis convallis, eget dignissim odio porttitor. Donec nunc augue, fringilla eu odio et, auctor mollis massa. In sollicitudin metus at velit accumsan, sed tincidunt tellus gravida. Vivamus vestibulum, ante quis commodo venenatis, eros felis varius ipsum, ut pulvinar est dui eu est. Aenean congue, velit ac condimentum accumsan, elit lacus finibus quam, a dapibus ex libero vitae lorem. Sed dictum nisl pharetra, viverra urna quis, vehicula dui. Proin at consectetur lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.\r\n\r\nFusce malesuada ante eu mauris dapibus, vel dictum felis dapibus. Nulla eget pharetra arcu. Nulla porttitor cursus pulvinar. Suspendisse potenti. Curabitur vulputate mollis auctor. Sed malesuada lorem vitae justo tincidunt, at euismod leo vulputate. Morbi porttitor dictum dui, in ullamcorper ligula vehicula quis. Phasellus eu ex felis. In vehicula odio nisl, eu mollis dolor molestie vel. Donec elementum fringilla vulputate. Aenean auctor, ex cursus tincidunt venenatis, nisl nisl varius lacus, sed imperdiet ipsum nisl ac tortor. Phasellus commodo malesuada lacus sit amet sagittis. Nam purus arcu, fermentum in leo vel, volutpat tempor urna. Mauris id arcu eros.\r\n\r\nPhasellus mattis, mauris eget pellentesque ornare, nunc sapien pretium nunc, vitae aliquet velit nisi vel nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam leo libero, lobortis ac porta sed, rhoncus sit amet tortor. Nulla vitae suscipit massa, ut feugiat erat. Aenean sodales sapien sed sapien interdum tristique. Proin tempus est et ipsum tincidunt, eu maximus ipsum placerat. Aenean porta viverra odio vitae aliquet. Quisque nec purus dictum, pharetra lacus vel, varius erat. Cras at velit dignissim nisl finibus suscipit. Nulla consectetur sodales nisi id eleifend. Donec tincidunt auctor leo eget euismod.');
 
 -- --------------------------------------------------------
 
@@ -236,7 +260,7 @@ ALTER TABLE `jadwal_praktek`
 -- AUTO_INCREMENT for table `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -248,7 +272,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `riwayat`
 --
 ALTER TABLE `riwayat`
-  MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`

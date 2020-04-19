@@ -1,4 +1,4 @@
-/*css untuk homepage sebelum login*/
+/*-----------------------------------------------css untuk homepage sebelum login---------------------------------------*/
 
 .nav-color{ /* mengubah warna navbar */
     background:#0C7B93;
@@ -62,9 +62,9 @@ footer p{/* mengatur tulisan di footer */
     color: white;
 }
 
-/*css pasien*/
+/*-------------------------------------------------CSS PASIEN---------------------------------------------------------*/
 
-.h1-panel{ /*style panel h1 riwayat*/
+.h1-panel{ /*style panel h1 riwayat*/   
     background:#fff;
     opacity: 0.83;
     width:50%;
@@ -72,6 +72,7 @@ footer p{/* mengatur tulisan di footer */
     padding:1em;
     border-radius:0.5em;
     margin-bottom:1em;
+    margin-top:1em;
 }
 
 .riwayat-panel{ /*style panel riwayat*/
@@ -85,17 +86,23 @@ footer p{/* mengatur tulisan di footer */
     margin-top:1em;
 }
 
+.scroll-list-riwayat{
+    height: 90%;
+    overflow: auto;
+}
+
 .list-riwayat{/*style list riwayat*/
     border:1px solid black;
     border-radius:10px;
     padding:1em;
+    margin-bottom: 10px;
 }
 
 .list-riwayat h3{
     font-weight: bold;
 }
 
-/*css dokter*/
+/*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
 .footer-dk{
     text-align:center;
     background-color: white;
@@ -154,10 +161,15 @@ w   idth: 507px;
 .section-color-dk{
     background:transparent  ;
     width:50%;
+<<<<<<< HEAD
     height: 95%;
     padding-top: 5%;
     padding-left: auto;
     
+=======
+    height: 85%;
+    padding-top: 15%;
+>>>>>>> b130be914f078b1e4dc351269fd2b0ea2e3c2407
 }
 .h1-login-dk{
     color: white;
@@ -187,6 +199,23 @@ w   idth: 507px;
     font-size: 35px ;
     font-family:'Microsoft YaHei UI Light';
 }
+.section-hm-dk{
+    background:white  ;
+    opacity: 0.7;
+    margin-top: 5%;
+    height: 500px;    
+}
+.section-hm-d{
+    height: 85%;
+    
+}
+.btn-home-dk{
+    height: 170px;
+    width: 240px;
+    background-color: 847A7A;
+    opacity: 1.0;
+    margin: 20px;
+}
 
 
-/*css pengelola */
+/*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */
