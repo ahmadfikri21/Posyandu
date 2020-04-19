@@ -11,8 +11,8 @@
         <nav class="navbar navbar-inverse nav-color-dk">
             <div class="container-fluid nav-con">
                 <div class="navbar-header ">
-                <a class="navbar-brand" href="#"><img class="nav-logo-dk" src="<?= base_url('/assets/css/img/Logo_Dokter.png')?>" 
+                <a class="navbar-brand" href="#"><img class="nav-logo-dk" name="img-header" src="<?= base_url('/assets/css/img/Logo_Dokter.png')?>" 
                 alt="Logo" > </a>
                 <a class="navbar-brand nav-txt-color-dk" href="#">Integrated Healthcare</a>  
                 </div>
-        </nav>
+        </nav>    
