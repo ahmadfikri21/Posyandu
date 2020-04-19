@@ -7,8 +7,8 @@
             <p class="text-center">Center</p>
             <a href="<?=site_url('Dokter/Edit')?>">asd</a>
             <br>    
-            <button type="button" class="btn btn-secondary btn-lg ">Input Laporan Kesehatan <br>Pasien </button>
-            <button type="button" class="btn btn-secondary btn-lg">Isi Jadwal Praktek  </button>
+            <button type="button" class="btn btn-secondary btn-lg btn-home-dk">Input Laporan Kesehatan <br>Pasien </button>
+            <button type="button" class="btn btn-secondary btn-lg btn-home-dk">Isi Jadwal Praktek  </button>
             </center>
         </section>
 </section>
