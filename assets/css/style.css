@@ -108,6 +108,7 @@ footer p{/* mengatur tulisan di footer */
     background-color: white;
     opacity: 1.0;
     padding: 2%;
+    margin-top: 20px;
 }
 .footer-dk p{
     color: black ;
@@ -139,7 +140,7 @@ footer p{/* mengatur tulisan di footer */
 }
 .nav-txt-color-dk{
     position: absolute;
-w   idth: 507px;
+    width: 507px;
     height: 19px;
     left: 120px;
     top: 5px;

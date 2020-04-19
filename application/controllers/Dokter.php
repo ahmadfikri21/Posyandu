@@ -36,7 +36,7 @@ class Dokter extends CI_Controller
     public function homepage()
     {
         $username = $this->session->userdata('username');
-    $data['datadokter'] = $this->dokter_model->get_profile($username);
+        $data['datadokter'] = $this->dokter_model->get_profile($username);
         $data = $data['datadokter'][0];
         $this->load->view("templates/dokter/headerHome");
         $this->load->view("Dokter/homepage",$data);
