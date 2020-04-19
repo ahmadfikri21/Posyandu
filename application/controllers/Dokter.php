@@ -8,9 +8,7 @@ class Dokter extends CI_Controller
         $this->load->view("templates/dokter/headerHome");
         $this->load->view("Dokter/login");
         $this->load->view("templates/dokter/footerHome");
-        $this->load
     }
-
     public function homepage()
     {
         $this->load->view("templates/dokter/headerHome");
