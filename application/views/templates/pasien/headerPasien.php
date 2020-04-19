@@ -1,13 +1,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/style.css">
     <title>Posyandu</title>
 </head>
 
 <body>
     <div class="container-body">
-        <nav class="navbar navbar-inverse nav-color">
+        <nav class="navbar navbar-inverse nav-color nav-pasien">
             <div class="container-fluid nav-con">
                 <div class="navbar-header">
                     <a class="navbar-brand nav-txt-color" href="<?php echo base_url(); ?>Pasien/">Posyandu Online</a>
