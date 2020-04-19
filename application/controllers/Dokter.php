@@ -15,9 +15,7 @@ class Dokter extends CI_Controller
         $this->load->view("Dokter/login");
         $this->load->view("templates/dokter/footerHome");
     }
-<<<<<<< HEAD
-=======
-
+    
     public function Login()
     {
         $data['username'] = $this->input->post('username');
@@ -35,7 +33,6 @@ class Dokter extends CI_Controller
 			//$this->load->view('login',$data);
 		}
     }
->>>>>>> b130be914f078b1e4dc351269fd2b0ea2e3c2407
     public function homepage()
     {
         $username = $this->session->userdata('username');
