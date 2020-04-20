@@ -13,12 +13,14 @@
 
                                     <?php echo $this->session->flashdata('message'); ?>
 
-                                    <form class="user">
+                                    <form class="user" method="post" action="<?php echo base_url('Homepage/login'); ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="ussername" name="ussername" placeholder="Ussername">
+                                            <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>">
+                                            <?php echo form_error('username', '<small class="text-danger">', '</small>'); ?>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                            <?php echo form_error('password', '<small class="text-danger">', '</small>'); ?>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user ">
                                             Login

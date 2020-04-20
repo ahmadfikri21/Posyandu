@@ -16,7 +16,8 @@ class Homepage extends CI_Controller
         $this->load->view("templates/footerHome");
     }
 
-    public function tentangKami(){
+    public function tentangKami()
+    {
         $this->load->view("templates/headerHome");
         $this->load->view("tentangKami");
         $this->load->view("templates/footerHome");
@@ -24,10 +25,42 @@ class Homepage extends CI_Controller
 
     public function login()
     {
-        $this->load->view("templates/headerHome");
-        $this->load->view("pasien/login");
-        $this->load->view("templates/footerHome");
+        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view("templates/headerHome");
+            $this->load->view("pasien/login");
+            $this->load->view("templates/footerHome");
+        } else {
+            $this->_login();
+        }
     }
+
+    private function _login()
+    {
+        $data['username'] = $this->input->post('username');
+        $data['password'] = $this->input->post('password');
+
+        $user = $this->db->get_where('user', ['username' => $username])->row_array();
+        //jika user terdaftar
+        if ($user) {
+            if (password_verify($password, $user['password'])) {
+                $data = [
+                    'username' => $user['username']
+                ];
+                $this->session->set_userdata($data);
+                redirect('Pasien');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah.</div>');
+                redirect('Homepage/login');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username tidak terdaftar.</div>');
+            redirect('Homepage/login');
+        }
+    }
+
     public function registrasi()
     {
         $this->form_validation->set_rules('nama', 'nama', 'required|trim', ['required' => 'Nama harus diisi!']);
@@ -45,9 +78,9 @@ class Homepage extends CI_Controller
         } else {
             $data = [
                 'nama' => $this->input->post('nama'),
-                'username' => $this->input->post('username'),
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'email' => $this->input->post('email'),
+                'username' => $this->input->post('username', true),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'email' => $this->input->post('email', true),
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp')
             ];

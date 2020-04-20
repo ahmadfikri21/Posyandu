@@ -40,17 +40,4 @@
             return $query->row_array();
         }
 
-        public function get_informasi(){
-
-            $this->db->select('isi,max(tgl_dibuat)');
-            $this->db->from('informasi');
-            $this->db->group_by('isi');
-            $this->db->limit(1);
-
-            $query = $this->db->get();
-
-            return $query->result_array();
-        }
-
     }
-?>
