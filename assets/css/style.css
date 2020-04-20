@@ -142,6 +142,10 @@ footer p{/* mengatur tulisan di footer */
     font-weight: bold;
 }
 
+.btn-review-container{
+    text-align:right;
+}
+
 .heading-lap-panel{ /* container heading page laporan kesehatan */
     background:#fff;
     opacity: 0.83;
