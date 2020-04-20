@@ -24,31 +24,71 @@
     width: 100%;
 }
 
-.section-color{ /* mengatur atribut section (isi dari homepage) */
-    background:#BABABA;
-    opacity:0.74;
-    width:85%;
-    height: 95%;
+.container-welcome{ /*Container selamat datang homepage*/
+    width:100%;
     padding:2em;
-    color:black;
-    border-radius:1em;
-    margin-bottom:10%;
-    margin-top:5%;
+    background: white;
+    opacity: 0.83;
 }
 
-.side{ /* container dari tulisan daftar sekarang dan button */
+.container-welcome h1{ /*Container selamat datang homepage*/
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-isi{ /*container isi homepage*/
+    margin-top:1em;
+    width:100%;
+    padding:2em;
+    background: white;
+    opacity: 0.83;
+    margin-bottom:1em;
+}
+
+.carousel-inner .item img{ /*mengatur ukuran gambar di carousel*/
+    height:410px;
+    width:1280px;
+}
+
+.container-bawah-home{ /* container dari tulisan daftar sekarang dan button */
     width:550px;
+    opacity: 0.83;
     height:auto;
+    width: 100%;
     align-content: center;
+    background-color: white;
+    padding:1em;
+    margin-bottom:1em;
 }
 
-.side h3{ /*atribut tulisan mulai daftar sekarang*/
-    display:inline-block;
+.team-up{ /* container mengatur 2 card diatas*/
+    width:100%;
+    text-align: center;
+    display:flex;
     margin:0;
 }
 
-.side button{/* attribut button daftar */
-    float:right;
+.team-down{ /* container mengatur 3 card dibawah*/
+    width:100%;
+    text-align: center;
+    display:flex;
+}
+
+.kolom{ /* container mengatur jejeran kolom team-up menjadi 50% */
+    width: 50%;
+}
+
+.kolom:nth-child(1){
+    text-align:right;
+}
+
+.kolom:nth-child(2){
+    text-align:left;
+    padding-left:6em;
+}
+
+.kolom2{ /* container mengatur jejeran kolom team-down menjadi 50% */
+    width: 30%;
 }
 
 footer{ /*mengatur footer*/

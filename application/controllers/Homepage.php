@@ -10,6 +10,12 @@ class Homepage extends CI_Controller
         $this->load->view("templates/footerHome");
     }
 
+    public function tentangKami(){
+        $this->load->view("templates/headerHome");
+        $this->load->view("tentangKami");
+        $this->load->view("templates/footerHome");
+    }
+
     public function login()
     {
         $this->load->view("templates/headerHome");
