@@ -102,6 +102,33 @@ footer p{/* mengatur tulisan di footer */
     font-weight: bold;
 }
 
+.heading-lap-panel{
+    background:#fff;
+    opacity: 0.83;
+    width:100%;
+    height:25%;
+    padding:1em;
+    border-radius:0.5em;
+    margin-bottom:1em;
+    margin-top:1em;
+}
+
+.hasil-lap-panel{
+    background:#fff;
+    opacity: 0.83;
+    width:100%;
+    height:75%;
+    padding:1.5em;
+    border-radius:0.5em;
+    margin-bottom:1em;
+    margin-top:1em;
+}
+
+.heading-lap-panel input{
+    width:4%;
+    float:right;
+}
+
 /*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
 .footer-dk{
     text-align:center;
