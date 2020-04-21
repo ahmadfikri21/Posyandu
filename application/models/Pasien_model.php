@@ -18,8 +18,8 @@ class Pasien_model extends CI_Model
                 $data = [
                     'username' => $user['username']
                 ];
-                $this->session->set_userdata($data);
-                redirect('Pasien/homepage');
+                $this->session->set_userdata('userdata',$data);
+                redirect('Pasien/');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password anda salah.</div>');
                 redirect('Homepage/login');
@@ -48,7 +48,7 @@ class Pasien_model extends CI_Model
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
-                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_BCRYPT),
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'alamat' => $this->input->post('alamat'),
                 'no_telp' => $this->input->post('no_telp')
@@ -120,5 +120,11 @@ class Pasien_model extends CI_Model
         $query = $this->db->get();
 
         return $query->row_array();
+    }
+
+    public function get_informasi(){
+        $query = $this->db->get('informasi');
+
+        return $query->result_array();
     }
 }
