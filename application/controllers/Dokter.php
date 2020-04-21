@@ -43,5 +43,9 @@ class Dokter extends CI_Controller
         $this->load->view("templates/dokter/footerHome");
     }
 
+    // public function uploadFoto(){
+    //     if($this->session->)
+    // }
+
 
 }
