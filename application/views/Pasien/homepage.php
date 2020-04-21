@@ -1,6 +1,6 @@
 <section class="container">
     <div class="container-welcome">
-        <h1><center>Hi User!</center></h1>
+        <h1><center>Hi <?php echo $user['username'] ?>!</center></h1>
     </div>
     <section class="container-isi">
         <h2><center>Informasi Terbaru</center></h2>

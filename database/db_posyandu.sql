@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2020 at 10:20 AM
+-- Generation Time: Apr 21, 2020 at 12:08 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -63,9 +63,19 @@ INSERT INTO `dokter` (`id_dokter`, `nama`, `username`, `password`, `no_telp`) VA
 
 CREATE TABLE `informasi` (
   `id_informasi` int(11) NOT NULL,
-  `isi` varchar(255) NOT NULL,
+  `isi` longtext NOT NULL,
   `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `informasi`
+--
+
+INSERT INTO `informasi` (`id_informasi`, `isi`, `tgl_dibuat`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in orci a libero hendrerit condimentum sit amet quis nisi. Vestibulum lorem eros, egestas vel eleifend eget, suscipit sed dui. Vivamus faucibus velit mauris, in accumsan dolor vestibulum', '2020-04-20 09:25:35'),
+(3, 'baru\r\n', '2020-04-20 09:48:14'),
+(4, 'sangat baru\r\n', '2020-04-20 10:00:19'),
+(5, 'sangat sangat sangat baru', '2020-04-20 10:09:39');
 
 -- --------------------------------------------------------
 
@@ -90,16 +100,17 @@ CREATE TABLE `pasien` (
   `tanggal` date NOT NULL,
   `jam_praktek` varchar(30) NOT NULL,
   `tgl_lahir` date NOT NULL,
-  `kategori` varchar(30) NOT NULL
+  `kategori` varchar(30) NOT NULL,
+  `pendaftar` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `nama`, `tanggal`, `jam_praktek`, `tgl_lahir`, `kategori`) VALUES
-(1, 'Ahmad Fikri', '2020-04-01', '10.00', '2020-03-09', 'Umum'),
-(2, 'Andi', '2020-04-08', '13.00', '2020-01-20', 'Anak');
+INSERT INTO `pasien` (`id_pasien`, `nama`, `tanggal`, `jam_praktek`, `tgl_lahir`, `kategori`, `pendaftar`) VALUES
+(1, 'Ahmad Fikri', '2020-04-01', '10.00', '2020-03-09', 'Umum', ''),
+(2, 'Andi', '2020-04-08', '13.00', '2020-01-20', 'Anak', '');
 
 -- --------------------------------------------------------
 
@@ -168,11 +179,19 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(70) NOT NULL,
   `username` varchar(70) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(70) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `no_telp` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `email`, `alamat`, `no_telp`) VALUES
+(5, 'Ahmad Kamal', 'ad', '$2y$10$sjpJruoE6Rl.a4EKHy.Yd.yBsscv17kgXTSEmWMwB./NXS3vAUj..', 'adf@email.cpm', 'cirebon', 2147483647),
+(6, 'tt', 'test', '$2y$10$dQVojqhHZM.h7WQHzC/UGOIDq7HtJMLfcFmx1rP7QcqYYmif2Axae', 'fikriahmad705@gmail.com', 'cirebon', 2147483647);
 
 --
 -- Indexes for dumped tables
@@ -249,7 +268,7 @@ ALTER TABLE `antrian`
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
-  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_informasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jadwal_praktek`
@@ -279,7 +298,7 @@ ALTER TABLE `riwayat`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
