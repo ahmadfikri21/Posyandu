@@ -30,7 +30,7 @@ class Dokter extends CI_Controller
          
             $data['error_message'] = "Invalid Username or Password";
             echo $data['error_message'];
-			//$this->load->view('login',$data);
+			//$this->load->view('login',$data); 
 		}
     }
     public function homepage()
