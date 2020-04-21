@@ -2,7 +2,7 @@
     <div class="h1-panel">
         <h1><strong>Riwayat Pemeriksaan Pasien</strong></h1>
     </div>
-    <div class="clear-in-review">
+    <div class="btn-review-container">
         <button class="btn btn-success btn-lg" href="#">Input Review Pelayanan</button>
     </div>
     <div class="riwayat-panel">
