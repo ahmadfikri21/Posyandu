@@ -104,6 +104,14 @@ footer p{/* mengatur tulisan di footer */
 
 /*-------------------------------------------------CSS PASIEN---------------------------------------------------------*/
 
+.body-riwayat{
+    background:url('../css/img/doctor.jpg');
+}
+
+.body-lap-kesehatan{
+    background:url('../css/img/doctor.jpg');
+}
+
 .h1-panel{ /*style panel h1 riwayat*/   
     background:#fff;
     opacity: 0.83;
@@ -184,6 +192,10 @@ footer p{/* mengatur tulisan di footer */
     width:10%; 
 }
 
+.nav-pasien{
+    margin:0;
+}
+
 /*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
 .footer-dk p{
     color:black;
@@ -249,8 +261,8 @@ footer p{/* mengatur tulisan di footer */
     height: 95%;
     padding-top: 5%%;
     padding-left: auto;
-    
 }
+
 .h1-login-dk{
     color: white;
     text-align: center;
