@@ -26,8 +26,8 @@ class Homepage extends CI_Controller
 
     public function login()
     {
-        $this->form_validation->set_rules('username', 'Username', 'trim|required');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required');
+        $this->form_validation->set_rules('username', 'Username', 'trim|required', ['required' => 'Username harus diisi!']);
+        $this->form_validation->set_rules('password', 'Password', 'trim|required', ['required' => 'Password harus diisi!']);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("templates/headerHome");
@@ -36,6 +36,12 @@ class Homepage extends CI_Controller
         } else {
             $this->Pasien_model->_login();
         }
+    }
+
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('homepage');
     }
 
     public function registrasi()
