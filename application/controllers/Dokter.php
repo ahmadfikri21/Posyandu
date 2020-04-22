@@ -43,6 +43,18 @@ class Dokter extends CI_Controller
         $this->load->view("templates/dokter/footerHome");
     }
 
+    public function daftarpasien(){
+        $this->load->view("templates/dokter/headerHome");
+        $this->load->view("Dokter/daftarpasien");
+        $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function inputlaporan(){
+        $this->load->view("templates/dokter/headerHome");
+        $this->load->view("Dokter/inputlaporan");
+        $this->load->view("templates/dokter/footerHome");
+    }
+
     // public function uploadFoto(){
     //     if($this->session->)
     // }
