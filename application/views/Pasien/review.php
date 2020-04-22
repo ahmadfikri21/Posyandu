@@ -37,7 +37,7 @@
                                     Kirim Riview
                                 </button>
 
-                                <button type="submit" class="btn btn-primary btn-user float-right">
+                                <button type="submit" class="btn btn-primary btn-user float-right" href="<?php echo base_url(); ?>pasien/">
                                     Batal
                                 </button>
                             </form>

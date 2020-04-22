@@ -13,12 +13,12 @@
                             <form class="user" method="post" action="<?php echo base_url('Homepage/registrasi'); ?>">
                                 <div class="form-group">
                                     <h5>Nama</h5>
-                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="" value="<?php echo set_value('nama'); ?>">
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Name" value="<?php echo set_value('nama'); ?>">
                                     <?php echo form_error('nama', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <h5>Username</h5>
-                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="" value="<?php echo set_value('username'); ?>">
+                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?php echo set_value('username'); ?>">
                                     <?php echo form_error('username', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group row">
@@ -33,17 +33,17 @@
                                 </div>
                                 <div class="form-group">
                                     <h5>E-mail</h5>
-                                    <input type="text" class="form-control form-control-user" name="email" id="email" placeholder="" value="<?php echo set_value('email'); ?>">
+                                    <input type="text" class="form-control form-control-user" name="email" id="email" placeholder="E-mail" value="<?php echo set_value('email'); ?>">
                                     <?php echo form_error('email', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <h5>Alamat</h5>
-                                    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="" value="<?php echo set_value('alamat'); ?>">
+                                    <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Address" value="<?php echo set_value('alamat'); ?>">
                                     <?php echo form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <h5>Nomor Telepon</h5>
-                                    <input type="text" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="" value="<?php echo set_value('no_telp'); ?>">
+                                    <input type="text" class="form-control form-control-user" id="no_telp" name="no_telp" placeholder="Phone Number" value="<?php echo set_value('no_telp'); ?>">
                                     <?php echo form_error('no_telp', '<small class="text-danger">', '</small>'); ?>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
