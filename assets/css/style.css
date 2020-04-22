@@ -247,7 +247,7 @@ footer p{/* mengatur tulisan di footer */
     background:transparent  ;
     width:50%;
     height: 95%;
-    padding-top: 5%%;
+    padding-top: 5%;
     padding-left: auto;
     
 }
@@ -286,9 +286,9 @@ footer p{/* mengatur tulisan di footer */
     font-family:'Microsoft YaHei UI Light';
 }
 .section-hm-dk{
-    background:white  ;
+    background: url('../css/img/back_doctor_hm.jpg') ;
     opacity: 0.7;
-    margin-top: 5%;
+    margin-top: 5%;`
     height: 500px;    
 }
 .section-hm-d{
