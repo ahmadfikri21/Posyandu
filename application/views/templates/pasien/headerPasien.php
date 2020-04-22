@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/style.css">
@@ -16,6 +17,6 @@
                     <li><a href="<?php echo base_url(); ?>Pasien/">Home</a></li>
                     <li><a href="#">Daftar Praktek</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/riwayat">Riwayat</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="<?php echo base_url(); ?>homepage/logout">Logout</a></li>
                 </ul>
         </nav>
