@@ -83,10 +83,12 @@ class Pasien_model extends CI_Model
         }
     }
 
-    public function get_riwayat()
+    public function get_riwayat($user)
     {
+        $where = "pendaftar = '".$user."'";
         $this->db->from('pasien');
         $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+        $this->db->where($where);
         $this->db->order_by('tanggal', 'DESC');
 
         $query = $this->db->get();
@@ -94,16 +96,20 @@ class Pasien_model extends CI_Model
         return $query->result_array();
     }
 
-    public function get_search($cari)
+    public function get_search($cari,$user)
     {
-        $where = "nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori='%" . $cari . "%'";
-        $this->db->from('pasien');
-        $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
-        $this->db->where($where);
+        if($cari == ""){
+            return false;
+        }else{
+            $where = "pendaftar='".$user."' AND  nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori='%" . $cari . "%'";
+            $this->db->from('pasien');
+            $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+            $this->db->where($where);
 
-        $query = $this->db->get();
+            $query = $this->db->get();
 
-        return $query->result_array();
+            return $query->result_array();   
+        }
     }
 
     public function get_lapKesehatan($id_riwayat)

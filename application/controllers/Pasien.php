@@ -12,7 +12,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
         }
 
         public function riwayat(){
-            $data['riwayat'] = $this->Pasien_model->get_riwayat();
+            $user = $this->session->userdata('userdata');
+            $data['riwayat'] = $this->Pasien_model->get_riwayat($user['username']);
+            $data['user'] = $user['username'];
 
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/riwayat',$data);
@@ -21,8 +23,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
         public function cari(){
             $cari = $this->input->post('cari');
+            $user = $this->session->userdata('userdata');
 
-            $data['riwayat'] = $this->Pasien_model->get_search($cari);
+            if($this->Pasien_model->get_search($cari,$user['username'])){
+                $data['riwayat'] = $this->Pasien_model->get_search($cari,$user['username']);
+            }else{
+                redirect("Pasien/riwayat");
+            }
+            $data['user'] = $user['username'];
 
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/riwayat',$data);

@@ -1,6 +1,6 @@
 <div class="container body-riwayat">
     <div class="h1-panel">
-        <h1><strong>Riwayat Pemeriksaan Pasien</strong></h1>
+        <h1><strong>Riwayat Pemeriksaan <?php echo $user ?></strong></h1>
     </div>
     <div class="btn-review-container">
         <button class="btn btn-success btn-lg" href="#">Input Review Pelayanan</button>
