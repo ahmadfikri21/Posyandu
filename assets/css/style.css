@@ -185,20 +185,23 @@ footer p{/* mengatur tulisan di footer */
 }
 
 /*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
-.footer-dk{
-    text-align:center;
-    background-color: white;
-    opacity: 1.0;
-    padding: 2%;
-    margin-top: 20px;
-}
 .footer-dk p{
-    color: black ;
-    opacity: 100%;
+    color:black;
     font-size: 20px;
-    line-height: 37px;
-
 }
+.footer-dk{
+    background-color:rgb(235, 225, 225);
+    padding: 20px;
+}
+/*-----------------------------------------------------FOOTER DOKTER-------------------------------------------------------------*/
+.loginya{
+    background:url('../css/img/back_doctor_1.jpg');   
+}
+#wrapper header{
+    padding: 30px;
+    background-color: rgb(235, 225, 225);;
+}
+
 .form-check-label{
     color: white;
     font-family: 'Microsoft YaHei UI Light';
@@ -209,8 +212,8 @@ footer p{/* mengatur tulisan di footer */
     height: 30px;
 }
 .nav-color-dk{
-    background-color: white;
-    border-color: white;
+    background-color:#404244;
+    border-color: #404244;
     padding-top: 2%;
 }
 .nav-logo-dk{
@@ -224,12 +227,12 @@ footer p{/* mengatur tulisan di footer */
     position: absolute;
     width: 507px;
     height: 19px;
-    left: 120px;
+    left: 100px;
     top: 5px;
     font-family: 'Microsoft YaHei UI Light';
     font-style: normal;
     font-weight: normal;
-    font-size: 36px;
+    font-size: 36px; 
     line-height: 44px;
     color: rgba(51, 56, 61, 0.35);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -237,9 +240,8 @@ footer p{/* mengatur tulisan di footer */
 .container-body-dk{
     background:url('../css/img/back_doctor_1.jpg');
     width: 100%;
-    margin-top:20px ;
-    margin-bottom: 30px;
- 
+    padding-bottom: 2px;
+    /* margin-top:20px ; */
 }
 .section-color-dk{
     background:transparent  ;
@@ -253,17 +255,23 @@ footer p{/* mengatur tulisan di footer */
     color: white;
     text-align: center;
     font-family: 'Microsoft YaHei UI Light';
-    font-size: 50PX;
-    width: 850px;
-    height: 50px;
-    padding: auto;
+    font-size: 50px;
+    /* width: 850px; */
+    /* height: 50px; */
+    /* padding: auto; */
+}
+.LoginBox{
+    width: 805px;
+	background:transparent;
+    margin: 100px auto ; 
+	padding: 10px 10px;
 }
 .input-login-dk{
     background-color: white;
     margin-top: 30px;
     opacity: 30%;
     height:105px ;
-    width: 804px;
+    width: 780px;
     font-size:30px;
 }
 .btn-login-dk{
