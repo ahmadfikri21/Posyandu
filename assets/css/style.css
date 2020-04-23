@@ -364,7 +364,7 @@ footer p{/* mengatur tulisan di footer */
     padding-left: 5%;
     height:  80%;
 }
-}
+
 .con-input-dk form {
     background-color: rgba(196, 196, 196, 0.7);
 }
@@ -382,6 +382,12 @@ footer p{/* mengatur tulisan di footer */
     
 }
 .page-daftar-dk{
-  ;
+  
 }
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
+.login-panel{
+    background: #00A8CC;
+    padding: 1em;
+    border-radius:10px;
+    margin-top:15%;
+}

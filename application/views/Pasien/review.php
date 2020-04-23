@@ -12,7 +12,7 @@
                             </div>
                             <?php echo $this->session->flashdata('message'); ?>
 
-                            <form class="user" method="post" action="<?php echo base_url('Homepage/review'); ?>">
+                            <form class="user" method="post" action="<?php echo base_url('pasien/review'); ?>">
                                 <div class="form-group">
                                     <h5>Kualitas Penanganan</h5>
                                     <input type="radio" class="radioB" name="kualitas" id="kualitas" value="Sangat Baik"> Sangat Baik</input></br>
@@ -37,9 +37,9 @@
                                     Kirim Riview
                                 </button>
 
-                                <button type="submit" class="btn btn-primary btn-user float-right" href="<?php echo base_url(); ?>pasien/">
+                                <a class="btn btn-danger btn-user float-right" href="<?php echo base_url(); ?>pasien/riwayat">
                                     Batal
-                                </button>
+                                </a>
                             </form>
                             <hr>
 

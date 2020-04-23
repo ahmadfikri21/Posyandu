@@ -48,9 +48,4 @@ class Homepage extends CI_Controller
     {
         $data['user'] = $this->Pasien_model->get_registrasi();
     }
-
-    public function review()
-    {
-        $data['review'] = $this->Pasien_model->get_review();
-    }
 }
