@@ -73,4 +73,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
         }
 
+        public function review()
+        {
+            $username = $this->session->userdata('userdata');
+            $data['review'] = $this->Pasien_model->get_review($username['username']);
+        }
     }

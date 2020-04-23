@@ -60,26 +60,26 @@ class Pasien_model extends CI_Model
         }
     }
 
-    public function get_review()
+    public function get_review($username)
     {
         $this->form_validation->set_rules('kualitas', 'Kualitas', 'required|trim', ['required' => 'Kualitas Pelayanan harus diisi!']);
         $this->form_validation->set_rules('kritik', 'Kritik', 'required|trim', ['required' => 'Kritik harus diisi!']);
         $this->form_validation->set_rules('saran', 'Saran', 'required|trim', ['required' => 'Saran harus diisi!']);
 
         if ($this->form_validation->run() == false) {
-            $this->load->view("templates/headerHome");
+            $this->load->view("templates/pasien/headerPasien");
             $this->load->view("pasien/review");
-            $this->load->view("templates/footerHome");
+            $this->load->view("templates/pasien/footerPasien");
         } else {
             $data = [
-                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'nama' => $username,
                 'kualitas' => ($this->input->post('kualitas')),
                 'kritik' => ($this->input->post('kritik')),
                 'saran' => ($this->input->post('saran')),
             ];
             $this->db->insert('review', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat! Review anda telah berhasil kami terima.</div>');
-            redirect('Homepage/review');
+            redirect('pasien/review');
         }
     }
 

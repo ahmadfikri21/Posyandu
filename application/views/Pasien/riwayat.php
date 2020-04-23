@@ -4,7 +4,7 @@
             <h1><strong>Riwayat Pemeriksaan <?php echo $user ?></strong></h1>
         </div>
         <div class="btn-review-container">
-            <button class="btn btn-success btn-lg" href="<?php echo base_url(); ?>Pasien/review">Input Review Pelayanan</button>
+            <a class="btn btn-success btn-lg" href="<?php echo base_url(); ?>Pasien/review">Input Review Pelayanan</a>
         </div>
         <div class="riwayat-panel">
             <?php echo form_open('Pasien/cari', array('class' => 'form-inline')); ?>
