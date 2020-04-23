@@ -382,8 +382,31 @@ footer p{/* mengatur tulisan di footer */
 }
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
 .login-panel{
-    background: #00A8CC;
+    background: #fff;
     padding: 1em;
     border-radius:10px;
     margin-top:15%;
+    margin-bottom:15%;
+}
+
+.panel-kelola-dokter{
+    background:#fff;
+    padding:2em;
+    margin-top: 1em;
+    margin-bottom :1em;
+    height: 100%;
+}
+
+.panel-kelola-dokter h1{
+    text-align:center;
+    font-weight: bold;
+}
+
+.head-tb-dk{ /* merubah warna thead di kelola dokter */
+    background:#0C7B93;
+    color:white;
+}
+
+.tambah-dk{  /* btn tambah kelola dokter */
+    margin-bottom:1em;
 }
