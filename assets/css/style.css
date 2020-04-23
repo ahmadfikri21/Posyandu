@@ -350,11 +350,12 @@ footer p{/* mengatur tulisan di footer */
 }
 .help-daftarpasien-dk{
     margin-top: 20px;
-    float: right;
+    
 }
 .help-daftarpasien-dk a{
     color: rgba(94, 98, 103, 1);
     font-size: 20px;
+    float: right;
     
 }
 .con-input-dk{
@@ -379,5 +380,8 @@ footer p{/* mengatur tulisan di footer */
     float: right;
     opacity: 1;
     
+}
+.page-daftar-dk{
+  ;
 }
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   

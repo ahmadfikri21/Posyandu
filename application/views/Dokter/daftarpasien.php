@@ -26,11 +26,27 @@
                 <!--isi table -->
             </tbody>
             </table>
+
+            
         </section>
     </center>
 
+    
     <section class="help-daftarpasien-dk">
+   
+            <ul class="pagination justify-content-center page-daftar-dk">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                
+            </ul>
+            
+     
         <a href="<?=site_url('BANTUAN')?>" >Bantuan</a> | 
         <a href="<?=site_url('BANTUAN')?>" >Tentang Kami</a>
+        
     </section>
+    
 </section>
