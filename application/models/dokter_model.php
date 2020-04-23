@@ -4,7 +4,7 @@ class dokter_model extends CI_Model{
 	public function check_username($username){
 		//check if username (from param) already exist in db or not, return true / false
 		$this->db->where('username',$username);
-		$query = $this->db->get('profile');
+		$query = $this->db->get('dokter');
 		if($query->num_rows() > 0){
 			return false;	
 		}else{
@@ -23,6 +23,20 @@ class dokter_model extends CI_Model{
 			return false;
 		}
 	}
+
+	
+	public function get_riwayat($data){
+		//$this->db->table('riwayat');
+		$this->db->select('*');
+		$this->db->join('pasien', 'pasien.id_pasien = riwayat.id_pasien');
+		$this->db->where('id_dokter',$data['id_dokter']);
+		$this->db->where('status',0);
+		$query = $this->db->get('riwayat');	
+		return $query->result_array();
+
+	}
+
+	public function input_hasil_pemerikasasan(){}
 	
 	public function insert_new_profile($data){
 		//insert data (consist of username, password, and profile pic filename) to table, return true if insert works and vice versa

@@ -7,6 +7,7 @@ class Dokter extends CI_Controller
     parent::__construct();
     $this->load->model('dokter_model');
     $this->load->library('session');
+    $this->load->library('table');
   
     }
     public function index()
@@ -44,12 +45,17 @@ class Dokter extends CI_Controller
     }
 
     public function daftarpasien(){
+        $username = $this->session->userdata('username');
+        $data['datadokter'] = $this->dokter_model->get_profile($username);
+        
+        $data1['value']= $this->dokter_model->get_riwayat($data['datadokter'][0]);
+        
         $this->load->view("templates/dokter/headerHome");
-        $this->load->view("Dokter/daftarpasien");
+        $this->load->view("Dokter/daftarpasien",$data1);
         $this->load->view("templates/dokter/footerHome");
     }
 
-    public function inputlaporan(){
+    public function inputlaporan(){ 
         $this->load->view("templates/dokter/headerHome");
         $this->load->view("Dokter/inputlaporan");
         $this->load->view("templates/dokter/footerHome");
