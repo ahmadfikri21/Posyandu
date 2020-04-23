@@ -26,7 +26,6 @@ class dokter_model extends CI_Model{
 
 	
 	public function get_riwayat($data){
-		//$this->db->table('riwayat');
 		$this->db->select('*');
 		$this->db->join('pasien', 'pasien.id_pasien = riwayat.id_pasien');
 		$this->db->where('id_dokter',$data['id_dokter']);
@@ -36,7 +35,22 @@ class dokter_model extends CI_Model{
 
 	}
 
-	public function input_hasil_pemerikasasan(){}
+	public function get_riwayat_byid($data)
+	{
+		$this->db->select('*');
+		$this->db->join('pasien', 'pasien.id_pasien = riwayat.id_pasien');
+		$this->db->join('dokter', 'dokter.id_dokter = riwayat.id_dokter');
+		$this->db->where('id_riwayat',$data);
+		$query = $this->db->get('riwayat');	
+		return $query->result_array();
+	}
+
+	public function input_hasil_pemerikasaan($data){
+		$this->db->set('hasil_pemeriksaan', $data['value']);
+		$this->db->set('status', 1);
+		$this->db->where('id_riwayat', $data['id_riwayat']);
+		$this->db->update('riwayat');
+	}
 	
 	public function insert_new_profile($data){
 		//insert data (consist of username, password, and profile pic filename) to table, return true if insert works and vice versa

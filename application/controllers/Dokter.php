@@ -56,9 +56,22 @@ class Dokter extends CI_Controller
     }
 
     public function inputlaporan(){ 
+        $data = substr(current_url(), strrpos(current_url(), '/') + 1);
+        $data = $this->dokter_model->get_riwayat_byid($data);
+        $data = $data[0];
         $this->load->view("templates/dokter/headerHome");
-        $this->load->view("Dokter/inputlaporan");
+        $this->load->view("Dokter/inputlaporan",$data);
         $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function input_hasil_laporan(){
+        $data = substr(current_url(), strrpos(current_url(), '/') + 1);
+        $data = $this->dokter_model->get_riwayat_byid($data);
+        $data = $data[0];
+        $data['value'] = $this->input->post('hasilpemeriksaan');
+      
+        $this->dokter_model->input_hasil_pemerikasaan($data);
+       redirect('Dokter/daftarpasien');
     }
 
     // public function uploadFoto(){

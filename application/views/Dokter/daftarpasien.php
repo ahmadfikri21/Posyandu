@@ -32,7 +32,7 @@
                 echo "<td>".$key['jam_praktek']."</td>";  
                 echo "<td>".$key['tgl_lahir']."</td>";
                 echo "<td>".$key['kategori']."</td>";
-                echo "<td> <a class='btn btn-primary btn-table-aksi-dk' href=".site_url('Dokter/inputlaporan').">Input Laporan</a> </td></tr>";
+                echo "<td> <a class='btn btn-primary btn-table-aksi-dk' href=".site_url('Dokter/inputlaporan/'.$key['id_riwayat']).">Input Laporan</a> </td></tr>";
                  $count++;
             }
             
@@ -45,12 +45,12 @@
             
         </section>
     </center>
-
+                
     
     <section class="help-daftarpasien-dk">
             <center>
             <ul class="pagination justify-content-center page-daftar-dk">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="<?=current_url();?>">Previous</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
