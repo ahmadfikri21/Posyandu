@@ -30,7 +30,7 @@ class Dokter extends CI_Controller
          
             $data['error_message'] = "Invalid Username or Password";
             echo $data['error_message'];
-			//$this->load->view('login',$data);
+			//$this->load->view('login',$data); 
 		}
     }
     public function homepage()
@@ -40,6 +40,18 @@ class Dokter extends CI_Controller
         $data = $data['datadokter'][0];
         $this->load->view("templates/dokter/headerHome");
         $this->load->view("Dokter/homepage",$data);
+        $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function daftarpasien(){
+        $this->load->view("templates/dokter/headerHome");
+        $this->load->view("Dokter/daftarpasien");
+        $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function inputlaporan(){
+        $this->load->view("templates/dokter/headerHome");
+        $this->load->view("Dokter/inputlaporan");
         $this->load->view("templates/dokter/footerHome");
     }
 
