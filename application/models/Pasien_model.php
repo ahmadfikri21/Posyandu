@@ -133,4 +133,24 @@ class Pasien_model extends CI_Model
 
         return $query->result_array();
     }
+
+    public function daftarPraktek($username)
+    {
+        $data = [
+            "nama" => $this->input->post('nama', true),
+            "tanggal" => $this->input->post('tanggal', true),
+            "jam_praktek" => $this->input->post('jamP', true),
+            "tgl_lahir" => $this->input->post('lahir', true),
+            "kategori" => $this->input->post('katP', true),
+            "pendaftar" => $username
+        ];
+        
+        $this->db->insert('pasien',$data);
+    }
+
+    public function get_jam_praktek(){
+        $query = $this->db->query('SELECT jam_praktek FROM jadwal_praktek');
+        return $query->result();
+    }
+
 }

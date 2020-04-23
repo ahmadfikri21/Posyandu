@@ -2,6 +2,12 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
     class Pasien extends CI_Controller{
+        function __construct(){ 
+            parent::__construct(); 
+            $this->load->helper('url');
+            $this->load->model('Pasien_model');
+            $this->load->database(); 
+        } 
         public function index(){
             $data['informasi'] = $this->Pasien_model->get_informasi();
             $data['user'] = $this->session->userdata('userdata');
@@ -43,6 +49,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/laporanKesehatan',$data);
             $this->load->view('templates/Pasien/footerPasien');            
+        }
+
+        public function daftar_praktek(){
+            $this->load->helper('form');
+            $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('tanggal','Tanggal','required');
+            $this->form_validation->set_rules('jamP','JamP','required');
+            $this->form_validation->set_rules('lahir','Lahir','required');
+            $this->form_validation->set_rules('katP','KatP','required');  
+            $data['jamP']=$this->Pasien_model->get_jam_praktek();
+            $user = $this->session->userdata['userdata'];
+        
+            if($this->form_validation->run() == false){
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/daftar_praktek',$data);
+                $this->load->view('templates/Pasien/footerPasien');
+            }else{
+                $this->Pasien_model->daftarPraktek($user['username']);
+                $this->session->set_flashdata('flash','ditambah');
+                $this->session->flashdata('flash');
+                redirect('Pasien/daftar_praktek');
+            }
         }
 
     }
