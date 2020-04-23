@@ -7,10 +7,10 @@
             <p class="text-center">Center</p>
             <a class="eidt-profile" href="<?=site_url('Dokter/Edit')?>">edit profile</a>
             <br>    
-            <button type="button" class="btn btn-secondary btn-lg btn-home-dk" href="<?php echo site_url('Dokter/daftarpasien');?>">  <a href="<?php echo site_url('Dokter/daftarpasien');?>">
-            Input Laporan Kesehatan <br>Pasien </button>
-            <button type="button" class="btn btn-secondary btn-lg btn-home-dk" > <a href="<?php echo site_url('Dokter/isijadwaltravel');?>"> 
-            Isi Jadwal Praktek  </button>
+             <a class="btn btn-secondary btn-lg btn-home-dk" href="<?php echo site_url('Dokter/daftarpasien');?>">
+            Input Laporan Kesehatan <br>Pasien </a>
+            <a class="btn btn-secondary btn-lg btn-home-dk" href="<?php echo site_url('Dokter/isijadwaltravel');?>"> 
+            Isi Jadwal Praktek  </a>
             </center>
         </section>
 </section>

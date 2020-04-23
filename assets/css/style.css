@@ -314,7 +314,7 @@ footer p{/* mengatur tulisan di footer */
     background-color: 847A7A;
     opacity: 1.0;
     margin: 20px;
-    
+    text-decoration: none;
 }
 
 .con-daftarpasien-dk{
@@ -348,10 +348,9 @@ footer p{/* mengatur tulisan di footer */
     height: 80%;
 
 }
-.help-daftarpasien-dk{
-    margin-top: 20px;
-    
+.help-daftarpasien-dk{  
 }
+
 .help-daftarpasien-dk a{
     color: rgba(94, 98, 103, 1);
     font-size: 20px;
@@ -359,30 +358,35 @@ footer p{/* mengatur tulisan di footer */
     
 }
 .con-input-dk{
-    margin-top: 5%;
+    
+    padding-top: 5%;
     padding-right: 5%;
     padding-left: 5%;
     height:  80%;
+    background-color: white;
+    opacity: 0.5;   
+   
+}
+.con-input-dk form{
+    border-radius: 5px;
 }
 
-.con-input-dk form {
-    background-color: rgba(196, 196, 196, 0.7);
-}
 .form-input-dk , .form-inputlist-dk, .btn-input-dk{
     background-color: rgba(196, 196, 196, 0.7);
-    opacity: 0.9;
+    opacity: 1;
 }
-.form-inputlist-dk{
-    width: 100%;
-    height: 40px;
-}
+
 .btn-input-dk{
     float: right;
     opacity: 1;
     
 }
 .page-daftar-dk{
-  
+  height: 10px;
+  width: 300px;
+}
+.btn-table-aksi-dk{
+    opacity: 1
 }
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
 .login-panel{
