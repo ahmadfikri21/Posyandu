@@ -59,7 +59,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->form_validation->set_rules('lahir','Lahir','required');
             $this->form_validation->set_rules('katP','KatP','required');  
             $data['jamP']=$this->Pasien_model->get_jam_praktek();
-            $user = $this->session->userdata['userdata'];
+            $user = $this->session->userdata('userdata');
         
             if($this->form_validation->run() == false){
                 $this->load->view('templates/Pasien/headerPasien');
