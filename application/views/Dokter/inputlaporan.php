@@ -1,3 +1,4 @@
+<div class="input_laporan_back">
 <section class="con-input-dk">
 
 <h1>Formulir Pemeriksaan</h1>
@@ -26,7 +27,5 @@
   <button type="submit" class="btn btn-secondary btn-input-dk">Simpan</button>
  
 </form>
-
-
-
 </section>
+</div>

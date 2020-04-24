@@ -1,4 +1,3 @@
-<div class="loginya"> 
 <section class="container-fluid section-color-dk">
   <div class="LoginBox">
     <div class="h1-login-dk">Selamat Datang Dokter</div>
@@ -16,4 +15,4 @@
     </form> 
     </div>
 </section>
-</div>
+

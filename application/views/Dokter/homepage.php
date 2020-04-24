@@ -1,3 +1,4 @@
+<div class = "backgroundhp">
 <section class="container-fluid section-hm-dk">
         <section  class="container-fluid section-hm-d"> 
             <center>
@@ -14,3 +15,4 @@
             </center>
         </section>
 </section>
+</div>

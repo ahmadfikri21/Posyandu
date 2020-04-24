@@ -209,6 +209,9 @@ footer p{/* mengatur tulisan di footer */
 .LoginDokter{
     background:url('../css/img/back_doctor_1.jpg');   
 }
+/*.homepageDokter{
+    
+}*/
 #wrapper header{
     padding: 30px;
     background-color: rgb(235, 225, 225);;
@@ -297,6 +300,11 @@ footer p{/* mengatur tulisan di footer */
     font-size: 35px ;
     font-family:'Microsoft YaHei UI Light';
 }
+.backgroundhp{
+    background: url('../css/img/back_doctor_hm.jpg');
+    height: 100%; 
+    padding: 30px;
+}
 .section-hm-dk{
     background: white;
     opacity: 0.7;
@@ -321,6 +329,10 @@ footer p{/* mengatur tulisan di footer */
     padding-right: 5%;
     padding-left: 5%;
     height:  80%;
+    background: black;
+    padding: 30px;
+    /*padding-bottom: 30px;*/
+    margin-bottom: 80px
 }
 .form-search-dk{
     margin-top: 5%;
@@ -366,6 +378,9 @@ footer p{/* mengatur tulisan di footer */
     background-color: white;
     opacity: 0.5;   
    
+}
+.input_laporan_back{
+    background: url('../css/img/back_doctor_1.jpg');
 }
 .con-input-dk form{
     border-radius: 5px;
