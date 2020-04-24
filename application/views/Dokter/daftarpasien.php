@@ -40,8 +40,6 @@
                 <!--isi table -->
             </tbody>
             </table>
-
-            
         </section>
     </center>
                 
@@ -56,11 +54,7 @@
                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
             </center>
-            
-     
         <a href="<?=site_url('h')?>" >Bantuan</a> | 
         <a href="<?=site_url('Homepage/tentangkami')?>" >Tentang Kami</a>
-        
-    </section>
-    
+    </section>   
 </section>
