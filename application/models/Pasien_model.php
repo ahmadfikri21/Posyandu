@@ -85,7 +85,7 @@ class Pasien_model extends CI_Model
 
     public function get_riwayat($user)
     {
-        $where = "pendaftar = '".$user."'";
+        $where = "pendaftar = '".$user."' and status='1'";
         $this->db->from('pasien');
         $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
         $this->db->where($where);
