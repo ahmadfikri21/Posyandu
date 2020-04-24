@@ -56,9 +56,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->form_validation->set_rules('nama','Nama','required');
             $this->form_validation->set_rules('tanggal','Tanggal','required');
             $this->form_validation->set_rules('jamP','JamP','required');
+            $this->form_validation->set_rules('dokter','Dokter','required');
             $this->form_validation->set_rules('lahir','Lahir','required');
             $this->form_validation->set_rules('katP','KatP','required');  
+
+            $dokter = $this->Pasien_model->get_Dokter();
             $data['jamP']=$this->Pasien_model->get_jam_praktek();
+            $data['dokter'] = $dokter;
+
             $user = $this->session->userdata('userdata');
         
             if($this->form_validation->run() == false){
@@ -66,7 +71,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $this->load->view('Pasien/daftar_praktek',$data);
                 $this->load->view('templates/Pasien/footerPasien');
             }else{
+                $nama = $this->Pasien_model->get_idDokter($this->input->post('dokter'));
+                $id_pasien = $this->Pasien_model->get_idPasien();
+
                 $this->Pasien_model->daftarPraktek($user['username']);
+                $this->Pasien_model->daftarPraktekRiwayat($nama,$id_pasien);
                 $this->session->set_flashdata('flash','ditambah');
                 $this->session->flashdata('flash');
                 redirect('Pasien/daftar_praktek');
