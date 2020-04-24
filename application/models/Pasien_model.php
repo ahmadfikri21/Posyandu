@@ -153,4 +153,38 @@ class Pasien_model extends CI_Model
         return $query->result();
     }
 
+    public function get_profile($username){
+        $this->db->select();
+        $this->db->where('username',$username);
+        $this->db->from('user');
+        $query = $this->db->get();
+        $data = array();
+        foreach ($query ->result() as $user) {
+            $data = array(
+                "nama" => $user->nama,
+                "username" => $user->username,
+                "password" => $user->password,
+                "email" => $user->email,
+                "alamat" => $user->alamat,
+                "telp" => $user->no_telp
+            );
+        }
+        return $data;
+    }
+
+    public function update_profile($username){
+        $data = array(
+            "nama" => $this->input->post('nama',true),
+            "username" => $this->input->post('username',true),
+            "email" => $this->input->post('email',true),
+            "alamat" => $this->input->post('alamat',true),
+            "no_telp" => $this->input->post('telp',true)
+        );
+        $user = $this->input->post('nama',true);
+        $this->db->where('username',$username);
+        $this->db->update('user',$data);
+
+        return $user;
+    }
+
 }

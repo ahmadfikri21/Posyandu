@@ -78,4 +78,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $username = $this->session->userdata('userdata');
             $data['review'] = $this->Pasien_model->get_review($username['username']);
         }
+
+        public function update_akun(){
+            $this->load->helper('form');
+            $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('username','Username','required');
+            $this->form_validation->set_rules('email','Email','required');
+            $this->form_validation->set_rules('alamat','Alamat','required');
+            $this->form_validation->set_rules('telp','Telp','required'); 
+            $user = $this->session->userdata('userdata');
+            $data= $this->Pasien_model->get_profile($user['username']);
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/update_akun',$data);
+                $this->load->view('templates/Pasien/footerPasien');
+            } else {
+                $user= $this->Pasien_model->update_profile($user['username']);
+                $this->session->set_userdata('username',$user);
+                $this->session->set_flashdata('flash','update');
+                $this->session->flashdata('flash');
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/update_akun',$data);
+                $this->load->view('templates/Pasien/footerPasien');
+            }
+        }
     }

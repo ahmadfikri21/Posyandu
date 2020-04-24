@@ -17,6 +17,7 @@
                     <li><a href="<?php echo base_url(); ?>Pasien/">Home</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/daftar_praktek">Daftar Praktek</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/riwayat">Riwayat</a></li>
+                    <li><a href="<?php echo base_url(); ?>Pasien/update_akun">Profile</a></li>
                     <li><a href="<?php echo base_url(); ?>homepage/logout">Logout</a></li>
                 </ul>
         </nav>
