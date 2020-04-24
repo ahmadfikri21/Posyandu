@@ -173,16 +173,27 @@ class Pasien_model extends CI_Model
     }
 
     public function update_profile($username){
+        $user = $this->input->post('username',true);
+        
         $data = array(
             "nama" => $this->input->post('nama',true),
-            "username" => $this->input->post('username',true),
+            "username" => $user,
             "email" => $this->input->post('email',true),
             "alamat" => $this->input->post('alamat',true),
             "no_telp" => $this->input->post('telp',true)
         );
-        $user = $this->input->post('nama',true);
+        
+        $pendaftar = array('pendaftar' => $user);
+
+        $this->db->from('pasien');
+        $this->db->where('pendaftar',$username);
+        $this->db->update('pasien',$pendaftar);
+
+        $this->db->from('user');
         $this->db->where('username',$username);
         $this->db->update('user',$data);
+
+        $this->session->set_userdata('userdata',array('username' => $user));
 
         return $user;
     }

@@ -88,13 +88,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->form_validation->set_rules('telp','Telp','required'); 
             $user = $this->session->userdata('userdata');
             $data= $this->Pasien_model->get_profile($user['username']);
+            
             if ($this->form_validation->run() == false) {
                 $this->load->view('templates/Pasien/headerPasien');
                 $this->load->view('Pasien/update_akun',$data);
                 $this->load->view('templates/Pasien/footerPasien');
             } else {
-                $user= $this->Pasien_model->update_profile($user['username']);
-                $this->session->set_userdata('username',$user);
+                $user2= $this->Pasien_model->update_profile($user['username']);
+                // $this->session->set_userdata('username',$user2);
                 $this->session->set_flashdata('flash','update');
                 $this->session->flashdata('flash');
                 $this->load->view('templates/Pasien/headerPasien');
