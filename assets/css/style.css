@@ -423,6 +423,11 @@ footer p{/* mengatur tulisan di footer */
 .btn-table-aksi-dk{
     opacity: 1
 }
+.alert-login-dk{
+    color: red;
+    text-align: center;
+    font-size: 24px;
+}
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
 .login-panel{
     background: #fff;

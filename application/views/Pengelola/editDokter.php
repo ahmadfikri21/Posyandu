@@ -4,7 +4,7 @@
         <?php echo form_open('pengelola/updateDK') ?>
             <div class="form-group">
                 <label>Id Dokter</label>
-                <input type="text" name="id_dokter" class="form-control" value="<?php echo $dokter['id_dokter'] ?>" disabled>
+                <input type="text" name="id_dokter" class="form-control" value="<?php echo $dokter['id_dokter'] ?>" readonly>
             </div>
             <div class="form-group">
                 <label>Nama</label>

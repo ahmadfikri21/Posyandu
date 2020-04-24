@@ -29,9 +29,10 @@ class Dokter extends CI_Controller
            
 		}else{
          
-            $data['error_message'] = "Invalid Username or Password";
-            echo $data['error_message'];
-			//$this->load->view('login',$data); 
+            $this->session->set_flashdata('message','Salah Username Atau Password'); 
+            $this->session->flashdata('message');
+            redirect('Dokter/index');
+            redirect();
 		}
     }
     public function homepage()
@@ -94,6 +95,11 @@ class Dokter extends CI_Controller
         $this->dokter_model->updatedk($data);
         var_dump($data);
         redirect('Dokter/homepage');
+    }
+
+    public function logout(){
+        session_destroy();
+        redirect('Dokter/index');
     }
 
     // public function uploadFoto(){

@@ -17,7 +17,7 @@
                     <li><a href="<?php echo base_url(); ?>pengelola/informasi">informasi</a></li>
                     <li><a href="<?php echo base_url(); ?>pengelola/dokter">Dokter</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/jadwalPraktek">Jadwal Praktek</a></li>
-                    <li><a href="<?php echo base_url() ?>pengelola/pasien">Pasien</a></li>
+                    <li><a href="<?php echo base_url() ?>pengelola/kelolapasien">Pasien</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/pemeriksaan">Pemeriksaan</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/logout">Logout</a></li>
                 </ul>

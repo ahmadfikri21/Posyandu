@@ -3,7 +3,7 @@
 
         function __construct(){
             parent::__construct();
-           // $this->load->model();
+            $this->load->model('pengelola_model');
             $this->load->library('session');
           
             }
@@ -13,7 +13,26 @@
         }
 
         public function login(){
+            $data['username'] = $this->input->post('username');
+            $data['password'] = $this->input->post('password');
+            
+            if($this->Pengelola_model->login_pengelola($data)){
+                $this->session->set_userdata('username', $this->input->post('username'));
+                $this->session->set_userdata('password', $this->input->post('password'));
+                redirect('Pengelola/homepage');
+               
+            }else{
+             
+                $this->session->set_flashdata('message','Salah Username Atau Password'); 
+                $this->session->flashdata('message');
+                redirect('Pengelola/index');
 
+            }
+        }
+
+        public function logout(){
+            session_destroy();
+            redirect('Dokter/index');
         }
 
         public function dokter(){
@@ -26,7 +45,7 @@
 
         public function editDokter($id_dokter){
             $data['dokter'] = $this->Pengelola_model->get_Dokter($id_dokter);
-
+            
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/editDokter',$data);
             $this->load->view("templates/pengelola/footerPengelola");
@@ -38,8 +57,11 @@
         }
 
         public function tambahDokter(){
+            $data = $this->Pengelola_model->get_all_Dokter();
+            $data['id_dokter'] = $this->Pengelola_model->generateidDk($data);
+            
             $this->load->view("templates/pengelola/headerPengelola");
-            $this->load->view('Pengelola/tambahDokter');
+            $this->load->view('Pengelola/tambahDokter',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
 
@@ -80,6 +102,71 @@
             $this->load->view("templates/pengelola/footerPengelola");
         }
 
+        //----------------------------------------------------PASIEN-------------------------------------------------
+        public function kelolapasien()
+        {
+            $data['isiPasien'] = $this->Pengelola_model->get_Pasien();
+           
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPasien',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        
+        public function editPasien($id_Pasien){
+            $data['pasien'] = $this->Pengelola_model->get_Pasien($id_Pasien);   
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editPasien',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+        
+        public function updatePS(){
+            $this->Pengelola_model->updatePS();
+            redirect('pengelola/kelolapasien');
+        }
+
+        public function tambahPasien(){
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/tambahPasien');
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function tambahPS(){
+            $this->form_validation->set_rules('id_pasien','Id Pasien','required');
+            $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('tanggal','Tanggal','required');
+            $this->form_validation->set_rules('jam_praktek','Jam Praktek','required');
+            $this->form_validation->set_rules('tgl_lahir','Tgl Lahir','required');
+            $this->form_validation->set_rules('kategori','Kategori','required');
+            
+            if($this->form_validation->run()){
+                $this->Pengelola_model->tambahPS();
+                redirect('Pengelola/kelolapasien');
+            }else{
+                $this->load->view("templates/pengelola/headerPengelola");
+                $this->load->view('Pengelola/tambahPasien');
+                $this->load->view("templates/pengelola/footerPengelola");
+            }
+        }
+
+        public function hapusPasien($id_pasien){
+            $this->Pengelola_model->hapusPS($id_pasien);
+            redirect('Pengelola/kelolapasien');
+            
+        }
+        public function searchPS(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchPS($key)){
+                $data['isiPasien'] = $this->Pengelola_model->searchPS($key);
+            }else{
+                redirect('Pengelola/pasien');
+            }
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPasien',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
     }
 
 
