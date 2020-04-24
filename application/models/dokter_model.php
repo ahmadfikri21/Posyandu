@@ -69,5 +69,14 @@ class dokter_model extends CI_Model{
 		}
 		//delete if not necessary, it's just there to prevent error
 	}
+	public function updatedk($data){
+		$this->db->set('nama', $data['nama']);
+		$this->db->set('username', $data['username']);
+		$this->db->set('no_telp', $data['no_telp']);
+		$this->db->where('id_dokter', $data['id_dokter']);
+		$this->db->update('dokter');
+		
+
+	}
 }
 ?>

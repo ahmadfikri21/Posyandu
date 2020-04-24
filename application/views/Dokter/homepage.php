@@ -6,7 +6,7 @@
             <br>
             <p class="text-center">Dokter <?= $nama?></p>
             <p class="text-center"><?= $username?></p>
-            <a class="edit-profile" href="<?=site_url('Dokter/Edit')?>">edit profile</a>
+            <a class="edit-profile" href="<?=site_url('Dokter/editdokter')?>">edit profile</a>
             <br>    
              <a class="btn btn-secondary btn-lg btn-home-dk" href="<?php echo site_url('Dokter/daftarpasien');?>">
             Input Laporan Kesehatan <br>Pasien </a>

@@ -75,6 +75,27 @@ class Dokter extends CI_Controller
        redirect('Dokter/daftarpasien');
     }
 
+    public function editdokter(){
+        $username = $this->session->userdata('username');
+        $data = $this->dokter_model->get_profile($username);
+        $datahead = $data[0];
+        $data['dokter'] = $data[0];
+        
+        $this->load->view("templates/dokter/headerProfile",$datahead);
+        $this->load->view("Dokter/editdokter",$data);
+        $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function updateDK(){
+        $data['id_dokter'] =  $this->input->post('id_dokter');
+        $data['nama'] = $this->input->post('nama');
+        $data['username'] = $this->input->post('username');
+        $data['no_telp'] = $this->input->post('no_telp');
+        $this->dokter_model->updatedk($data);
+        var_dump($data);
+        redirect('Dokter/homepage');
+    }
+
     // public function uploadFoto(){
     //     if($this->session->)
     // }
