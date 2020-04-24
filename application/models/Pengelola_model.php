@@ -159,6 +159,13 @@
                 return $query->result_array();
             }
         }
+
+
+        public function get_praktek()
+        {
+            $query = $this->db->get('jadwal_praktek');
+            return $query->result_array();
+        }
      
  
 

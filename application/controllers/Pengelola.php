@@ -167,6 +167,15 @@
             $this->load->view('Pengelola/kelolaPasien',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
+//----------------------------------------------------PRAKTEK-------------------------------------------------
+
+        public function kelolapraktek()
+        {
+            $data['isiPraktek'] = $this->pengelola_model->get_praktek();
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaJP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
     }
 
 
