@@ -176,7 +176,6 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-<<<<<<< HEAD
 
         public function tambahJP()
         {
@@ -228,7 +227,6 @@
             $this->load->view("templates/pengelola/footerPengelola");
         }
     }
-=======
 //----------------------------------------------------Pemeriksaan-------------------------------------------------
 
         public function pemeriksaan(){
@@ -251,7 +249,6 @@
             $this->Pengelola_model->editPM($this->input->post('id_riwayat'));
             redirect('pengelola/pemeriksaan');
         }
->>>>>>> b968c7d4dabf6082934b845bc22bf0dee453a262
 
         public function hapusPemeriksaan($id_riwayat){
             $this->Pengelola_model->hapusPemeriksaan($id_riwayat);

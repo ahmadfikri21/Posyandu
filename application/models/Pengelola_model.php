@@ -166,7 +166,6 @@
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
-<<<<<<< HEAD
 
         public function generateidJP($data){
  
@@ -227,7 +226,6 @@
         }
 
  
-=======
      
         public function get_Pemeriksaan($id_riwayat = FALSE){
             
@@ -269,7 +267,6 @@
             $this->db->where('id_riwayat',$id);
             return $this->db->update('riwayat',$data);
         }
->>>>>>> b968c7d4dabf6082934b845bc22bf0dee453a262
 
         public function hapusPemeriksaan($id){
             return $this->db->delete('riwayat',array('id_riwayat' => $id));
