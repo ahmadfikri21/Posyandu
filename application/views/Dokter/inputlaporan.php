@@ -6,7 +6,7 @@
 <form action="" >
   <div class="form-group">
     <label for="exampleFormControlInput1">Nama</label>
-    <text  class="form-control form-input-dk" id="exampleFormControlInput1"  readonly> <?= $nama?></text>
+    <input  class="form-control form-input-dk" id="exampleFormControlInput1"  value="<?=$nama?>" readonly>
   </div>
 
   <div class="form-group">

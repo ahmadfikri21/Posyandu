@@ -42,7 +42,7 @@ class dokter_model extends CI_Model{
 	{
 		$this->db->select('*');
 		$this->db->join('pasien', 'pasien.id_pasien = riwayat.id_pasien');
-		$this->db->join('dokter', 'dokter.id_dokter = riwayat.id_dokter');
+		//$this->db->join('dokter', 'dokter.id_dokter = riwayat.id_dokter');
 		$this->db->where('id_riwayat',$data);
 		$query = $this->db->get('riwayat');	
 		return $query->result_array();
@@ -78,8 +78,22 @@ class dokter_model extends CI_Model{
 		$this->db->set('no_telp', $data['no_telp']);
 		$this->db->where('id_dokter', $data['id_dokter']);
 		$this->db->update('dokter');
-		
+	}
 
+	public function searchDK($key){
+		if($key == ""){
+			return FALSE;
+		}else{
+			$where = "pasien.id_pasien LIKE '%".$key."%' OR nama LIKE '%".$key."%' OR tanggal LIKE '%".$key."%' OR jam_praktek 
+			LIKE '%".$key."%' OR tgl_lahir LIKE '%".$key."%' OR kategori LIKE '%".$key."%'";
+			$this->db->select('tanggal,nama,jam_praktek,tgl_lahir,kategori,id_riwayat');
+			$this->db->join('pasien', 'pasien.id_pasien = riwayat.id_pasien');
+			$this->db->from('riwayat');
+			$this->db->where($where);
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
 	}
 }
 ?>

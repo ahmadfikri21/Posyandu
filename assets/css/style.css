@@ -454,6 +454,11 @@ footer p{/* mengatur tulisan di footer */
     font-size: 24px;
 }
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
+.container-body-pengelola{
+        background:url('../css/img/kelola.jpg');
+        width: 100%;
+}
+
 .login-panel{
     background: #fff;
     padding: 1em;

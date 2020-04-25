@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel-kelola-dokter">
     <h1>Tabel Kelola Jadwal Praktek</h1>
-        <?php echo form_open('pengelola/searchDK') ?>
+        <?php echo form_open('pengelola/searchJP') ?>
         <div class="form-group form-inline">
             <label>cari</label>
             <input type="text" name="cari" class="form-control" placeholder="cari">
@@ -25,6 +25,8 @@
                     <td><?= $i++; ?></td>
                     <td><?= $praktek['id_jadwal'] ?></td>
                     <td><?= $praktek['jam_praktek'] ?></td>
+                    <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/updateJP/' . $praktek['id_jadwal']); ?>">Edit</a>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteJP/' . $praktek['id_jadwal']); ?>">Hapus</a></td>
                 </tr>
                 <?php endforeach; ?>  
         </table>  

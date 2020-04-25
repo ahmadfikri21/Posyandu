@@ -73,6 +73,7 @@ class Dokter extends CI_Controller
         $data = substr(current_url(), strrpos(current_url(), '/') + 1);
         $data = $this->dokter_model->get_riwayat_byid($data);
         $data = $data[0];
+       
         $this->load->view("templates/dokter/headerProfile",$data);
         $this->load->view("Dokter/inputlaporan",$data);
         $this->load->view("templates/dokter/footerHome");
@@ -114,6 +115,27 @@ class Dokter extends CI_Controller
         redirect('Dokter/index');
     }
     
+
+    public function searchDK(){
+        $username = $this->session->userdata('username');
+        $data = $this->dokter_model->get_profile($username);
+        $datahead = $data[0];
+        $key = $this->input->post('search');
+        $data['value'] = $this->dokter_model->searchDK($key);
+        //var_dump($data['value']);
+        if($this->dokter_model->searchDK($key)){
+            $data['value'] = $this->dokter_model->searchDK($key);
+            $dat['value'][0] = $data['value'][0];
+        
+       
+        }else{
+            redirect('Dokter/daftarpasien');
+        }
+
+        $this->load->view("templates/dokter/headerProfile",$datahead);
+        $this->load->view("Dokter/daftarpasien",$dat);
+        $this->load->view("templates/dokter/footerHome");
+    }
 
     // public function uploadFoto(){
     //     if($this->session->)
