@@ -55,6 +55,18 @@ class Dokter extends CI_Controller
         $this->load->view("Dokter/daftarpasien",$data1);
         $this->load->view("templates/dokter/footerHome");
     }
+    public function viewJadwalPraktek(){
+        // headernya
+        $username = $this->session->userdata('username');
+        $data1['dataprofile']=$this->dokter_model->get_profile($username);
+        $data1=$data1['dataprofile'][0]; 
+        // headernya
+        $data['jadwal']=$this->dokter_model->view_jadwal();
+        
+        $this->load->view("templates/dokter/headerProfile",$data1);
+        $this->load->view("Dokter/Jadwal_praktek",$data);    
+        $this->load->view("templates/Dokter/footerHome");
+    }
 
     public function inputlaporan(){ 
         $data = substr(current_url(), strrpos(current_url(), '/') + 1);

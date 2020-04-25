@@ -23,6 +23,9 @@ class dokter_model extends CI_Model{
 			return false;
 		}
 	}
+	public function view_jadwal(){
+		return $this->db->get('jadwal_praktek')->result_array();
+	}
 
 	
 	public function get_riwayat($data){

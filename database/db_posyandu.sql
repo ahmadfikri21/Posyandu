@@ -88,6 +88,7 @@ CREATE TABLE `jadwal_praktek` (
   `jam_praktek` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO 'jadwal_praktek'('id_jadwal','jam_praktek') values(12052020,'13.00 WIB')
 -- --------------------------------------------------------
 
 --

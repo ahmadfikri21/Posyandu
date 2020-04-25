@@ -34,9 +34,7 @@
                 echo "<td> <a class='btn btn-primary btn-table-aksi-dk' href=".site_url('Dokter/inputlaporan/'.$key['id_riwayat']).">Input Laporan</a> </td></tr>";
                  $count++;
             }
-            
             ?>
-            
                 <!--isi table -->
             </tbody>
             </table>

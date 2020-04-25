@@ -322,6 +322,31 @@ footer p{/* mengatur tulisan di footer */
     height: 85%;
     
 }
+.table-background-pk{
+    /* padding-top:10px ; */
+    border-radius: 5px;
+    background: white;
+    background-color: B1A9A9;
+    opacity: 0.6;
+    height: 80%;
+    width: 80%;
+    font-family: 'Microsoft YaHei UI Light';
+}
+
+}
+.table-prak-dk thead,tbody{
+    color:black ;
+}
+
+.tabel-prak-dk tbody th{
+    height: 50px;
+}
+.background-pk{
+    background: url('../css/img/back_doctor_hm2.jpg');
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
 .btn-home-dk{
     height: 90px;
     width: 240px;
