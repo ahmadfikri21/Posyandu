@@ -167,9 +167,49 @@
             return $query->result_array();
         }
      
- 
+        public function get_Pemeriksaan($id_riwayat = FALSE){
+            
+            if($id_riwayat != FALSE){
+                $where = "id_riwayat = '".$id_riwayat."' ";
+                $this->db->from('pasien');
+                $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+                $this->db->where($where);
+                $this->db->order_by('tanggal', 'DESC');
+                $query = $this->db->get();
 
-    
+                return $query->row_array();
+            }
+        
+            $this->db->from('pasien');
+            $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+            $this->db->order_by('tanggal', 'DESC');
 
+            $query = $this->db->get();
+
+            return $query->result_array();
+        }
+
+        public function editPM($id){
+            $hasil = $this->input->post('hasilP');
+            
+            if($hasil != ""){
+                $data = array(
+                    "hasil_pemeriksaan" => $this->input->post('hasilP'),
+                    "status" => 1
+                );
+            }else{
+                $data = array(
+                    "hasil_pemeriksaan" => $this->input->post('hasilP'),
+                    "status" => 0
+                );
+            }
+
+            $this->db->where('id_riwayat',$id);
+            return $this->db->update('riwayat',$data);
+        }
+
+        public function hapusPemeriksaan($id){
+            return $this->db->delete('riwayat',array('id_riwayat' => $id));
+        }
     }
 ?>

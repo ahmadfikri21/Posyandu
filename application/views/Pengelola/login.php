@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="container-body">
+    <div class="container-body-pengelola">
         <nav class="navbar navbar-inverse nav-color nav-pasien">
             <div class="container-fluid nav-con">
                 <div class="navbar-header">

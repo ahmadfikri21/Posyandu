@@ -176,7 +176,34 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-    }
+//----------------------------------------------------Pemeriksaan-------------------------------------------------
 
+        public function pemeriksaan(){
+            $data['pemeriksa'] = $this->Pengelola_model->get_Pemeriksaan();
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        } 
+
+        public function editPemeriksaan($id_riwayat){
+            $data['pemeriksa'] = $this->Pengelola_model->get_pemeriksaan($id_riwayat);
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function editPM(){
+            $this->Pengelola_model->editPM($this->input->post('id_riwayat'));
+            redirect('pengelola/pemeriksaan');
+        }
+
+        public function hapusPemeriksaan($id_riwayat){
+            $this->Pengelola_model->hapusPemeriksaan($id_riwayat);
+            redirect('pengelola/pemeriksaan');
+        }
+
+    }
 
 ?>
