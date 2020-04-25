@@ -176,17 +176,14 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-<<<<<<< HEAD
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
         public function informasi(){
-            $username = $this->session->userdata('username');
-            $data['username']=$this->pengelola_model->getProfile($username);
-            $data=$data['username'][0];
+            $data['informasi']=$this->pengelola_model->getInfo();
             $this->load->view("templates/pengelola/headerPengelola");
-            $this->load->view('Pengelola/homepage',$data);
+            $this->load->view('Pengelola/informasi',$data);
             $this->load->view("templates/pengelola/footerPengelola");
-=======
+        }
 
         public function tambahJP()
         {
@@ -237,7 +234,7 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-    }
+    
 //----------------------------------------------------Pemeriksaan-------------------------------------------------
 
         public function pemeriksaan(){
@@ -281,8 +278,4 @@
         }
 
     }
->>>>>>> 374d4a8740ee1e7991db7aba2f98f3672c298fdf
-
-        }
-        }
 ?>

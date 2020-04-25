@@ -95,12 +95,6 @@
             }
         }
         
-
-        
-
-
-
-
         public function get_Pasien($id_pasien = NULL){
             if($id_pasien != NULL){
                 $query = $this->db->get_where('pasien',array('id_pasien' => $id_pasien));
@@ -165,19 +159,11 @@
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
-<<<<<<< HEAD
      
-        public function getProfile($username){
-        $this->db->where('username',$username);
-		$query = $this->db->get('pengelola');
-		if($query->num_rows() > 0){
-			return $query->result_array();
-		}else{
-			return false;
+        public function getInfo(){
+        $this->db->get('informasi')->result();
         }
-        }
-}   
-=======
+   
 
         public function generateidJP($data){
  
@@ -301,5 +287,4 @@
         }
 
     }
->>>>>>> 374d4a8740ee1e7991db7aba2f98f3672c298fdf
 ?>
