@@ -204,6 +204,20 @@
             redirect('pengelola/pemeriksaan');
         }
 
+        public function searchPM(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchPM($key)){
+                $data['pemeriksa'] = $this->Pengelola_model->searchPM($key);
+            }else{
+                redirect('Pengelola/pemeriksaan');
+            }
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
     }
 
 ?>

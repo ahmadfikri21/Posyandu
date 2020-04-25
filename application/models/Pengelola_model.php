@@ -211,5 +211,22 @@
         public function hapusPemeriksaan($id){
             return $this->db->delete('riwayat',array('id_riwayat' => $id));
         }
+
+        public function searchPM($cari){
+            if($cari == ""){
+                return FALSE;
+            }else{
+                $where = "nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori='%" . $cari . "%' OR
+                hasil_pemeriksaan LIKE '%".$cari."%' OR status LIKE '%".$cari."%' ";
+                $this->db->from('pasien');
+                $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+                $this->db->where($where);
+
+                $query = $this->db->get();
+
+                return $query->result_array();   
+            }
+        }
+
     }
 ?>

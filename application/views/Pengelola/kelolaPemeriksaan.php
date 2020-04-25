@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel-kelola-dokter">
         <h1>Tabel Kelola Hasil Pemeriksaan</h1>
-        <?php echo form_open('pengelola/searchDK') ?>
+        <?php echo form_open('pengelola/searchPM') ?>
         <div class="form-group form-inline">
             <label>cari</label>
             <input type="text" name="cari" class="form-control" placeholder="cari">
