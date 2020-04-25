@@ -166,6 +166,7 @@
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
+<<<<<<< HEAD
 
         public function generateidJP($data){
  
@@ -226,8 +227,69 @@
         }
 
  
+=======
+     
+        public function get_Pemeriksaan($id_riwayat = FALSE){
+            
+            if($id_riwayat != FALSE){
+                $where = "id_riwayat = '".$id_riwayat."' ";
+                $this->db->from('pasien');
+                $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+                $this->db->where($where);
+                $this->db->order_by('tanggal', 'DESC');
+                $query = $this->db->get();
 
-    
+                return $query->row_array();
+            }
+        
+            $this->db->from('pasien');
+            $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+            $this->db->order_by('tanggal', 'DESC');
+
+            $query = $this->db->get();
+
+            return $query->result_array();
+        }
+
+        public function editPM($id){
+            $hasil = $this->input->post('hasilP');
+            
+            if($hasil != ""){
+                $data = array(
+                    "hasil_pemeriksaan" => $this->input->post('hasilP'),
+                    "status" => 1
+                );
+            }else{
+                $data = array(
+                    "hasil_pemeriksaan" => $this->input->post('hasilP'),
+                    "status" => 0
+                );
+            }
+
+            $this->db->where('id_riwayat',$id);
+            return $this->db->update('riwayat',$data);
+        }
+>>>>>>> b968c7d4dabf6082934b845bc22bf0dee453a262
+
+        public function hapusPemeriksaan($id){
+            return $this->db->delete('riwayat',array('id_riwayat' => $id));
+        }
+
+        public function searchPM($cari){
+            if($cari == ""){
+                return FALSE;
+            }else{
+                $where = "nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori='%" . $cari . "%' OR
+                hasil_pemeriksaan LIKE '%".$cari."%' OR status LIKE '%".$cari."%' ";
+                $this->db->from('pasien');
+                $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
+                $this->db->where($where);
+
+                $query = $this->db->get();
+
+                return $query->result_array();   
+            }
+        }
 
     }
 ?>
