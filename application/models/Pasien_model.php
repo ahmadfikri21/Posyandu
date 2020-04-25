@@ -85,7 +85,7 @@ class Pasien_model extends CI_Model
 
     public function get_riwayat($user)
     {
-        $where = "pendaftar = '".$user."'";
+        $where = "pendaftar = '".$user."' and status='1'";
         $this->db->from('pasien');
         $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
         $this->db->where($where);
@@ -148,9 +148,100 @@ class Pasien_model extends CI_Model
         return $this->db->insert('pasien',$data);
     }
 
+    public function daftarPraktekRiwayat($dokter,$id){
+        $riwayat = array(
+            "id_dokter" => $dokter,
+            "id_pasien" => $id
+        );
+
+        return $this->db->insert('riwayat',$riwayat);
+    }
+
+    public function get_Dokter(){
+        $query = $this->db->query('SELECT id_dokter,nama FROM dokter');
+        return $query->result();
+    }
+
+    public function get_idDokter($nama){
+        $this->db->select('id_dokter');
+        $this->db->from('dokter');
+        $this->db->where('nama = "'.$nama.'"');
+        $this->db->limit(1);
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->id_dokter;
+        }
+
+        return false;
+    }
+
+    public function get_idPasien(){
+        $query =$this->db->select('id_pasien')->order_by('id_pasien',"desc")->limit(1)->get('pasien')->row();
+
+        $this->db->select('id_pasien');
+        $this->db->from('pasien');
+        $this->db->order_by('id_pasien','DESC');
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->id_pasien + 1;
+        }
+
+        return false;
+    }
+
     public function get_jam_praktek(){
         $query = $this->db->query('SELECT jam_praktek FROM jadwal_praktek');
         return $query->result();
+    }
+
+    public function get_profile($username){
+        $this->db->select();
+        $this->db->where('username',$username);
+        $this->db->from('user');
+        $query = $this->db->get();
+        $data = array();
+        foreach ($query ->result() as $user) {
+            $data = array(
+                "nama" => $user->nama,
+                "username" => $user->username,
+                "password" => $user->password,
+                "email" => $user->email,
+                "alamat" => $user->alamat,
+                "telp" => $user->no_telp
+            );
+        }
+        return $data;
+    }
+
+    public function update_profile($username){
+        $user = $this->input->post('username',true);
+        
+        $data = array(
+            "nama" => $this->input->post('nama',true),
+            "username" => $user,
+            "email" => $this->input->post('email',true),
+            "alamat" => $this->input->post('alamat',true),
+            "no_telp" => $this->input->post('telp',true)
+        );
+        
+        $pendaftar = array('pendaftar' => $user);
+
+        $this->db->from('pasien');
+        $this->db->where('pendaftar',$username);
+        $this->db->update('pasien',$pendaftar);
+
+        $this->db->from('user');
+        $this->db->where('username',$username);
+        $this->db->update('user',$data);
+
+        $this->session->set_userdata('userdata',array('username' => $user));
+
+        return $user;
     }
 
 }

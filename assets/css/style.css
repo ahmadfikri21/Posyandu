@@ -448,6 +448,11 @@ footer p{/* mengatur tulisan di footer */
 .btn-table-aksi-dk{
     opacity: 1
 }
+.alert-login-dk{
+    color: red;
+    text-align: center;
+    font-size: 24px;
+}
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
 .login-panel{
     background: #fff;
@@ -462,7 +467,7 @@ footer p{/* mengatur tulisan di footer */
     padding:2em;
     margin-top: 1em;
     margin-bottom :1em;
-    height: 100%;
+    height: auto;
 }
 
 .panel-kelola-dokter h1{

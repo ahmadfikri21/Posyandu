@@ -1,7 +1,7 @@
-<div class="container">
-    <div class="panel-kelola-dokter">
+<section>
+<div class="panel-kelola-dokter">
         <h1>Form Edit Data Dokter</h1>
-        <?php echo form_open('pengelola/updateDK') ?>
+        <?php echo form_open('Dokter/updateDK') ?>
             <div class="form-group">
                 <label>Id Dokter</label>
                 <input type="text" name="id_dokter" class="form-control" value="<?php echo $dokter['id_dokter'] ?>" readonly>
@@ -21,4 +21,6 @@
             <input type="submit" value="Edit" class="btn btn-info">
         <?php echo form_close() ?>
     </div>
-</div>
+
+
+</section>

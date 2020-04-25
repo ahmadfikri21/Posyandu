@@ -29,9 +29,10 @@ class Dokter extends CI_Controller
            
 		}else{
          
-            $data['error_message'] = "Invalid Username or Password";
-            echo $data['error_message'];
-			//$this->load->view('login',$data); 
+            $this->session->set_flashdata('message','Salah Username Atau Password'); 
+            $this->session->flashdata('message');
+            redirect('Dokter/index');
+            redirect();
 		}
     }
     public function homepage()
@@ -85,6 +86,32 @@ class Dokter extends CI_Controller
       
         $this->dokter_model->input_hasil_pemerikasaan($data);
        redirect('Dokter/daftarpasien');
+    }
+
+    public function editdokter(){
+        $username = $this->session->userdata('username');
+        $data = $this->dokter_model->get_profile($username);
+        $datahead = $data[0];
+        $data['dokter'] = $data[0];
+        
+        $this->load->view("templates/dokter/headerProfile",$datahead);
+        $this->load->view("Dokter/editdokter",$data);
+        $this->load->view("templates/dokter/footerHome");
+    }
+
+    public function updateDK(){
+        $data['id_dokter'] =  $this->input->post('id_dokter');
+        $data['nama'] = $this->input->post('nama');
+        $data['username'] = $this->input->post('username');
+        $data['no_telp'] = $this->input->post('no_telp');
+        $this->dokter_model->updatedk($data);
+        var_dump($data);
+        redirect('Dokter/homepage');
+    }
+
+    public function logout(){
+        session_destroy();
+        redirect('Dokter/index');
     }
 
     // public function uploadFoto(){

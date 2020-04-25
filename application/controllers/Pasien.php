@@ -56,9 +56,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->form_validation->set_rules('nama','Nama','required');
             $this->form_validation->set_rules('tanggal','Tanggal','required');
             $this->form_validation->set_rules('jamP','JamP','required');
+            $this->form_validation->set_rules('dokter','Dokter','required');
             $this->form_validation->set_rules('lahir','Lahir','required');
             $this->form_validation->set_rules('katP','KatP','required');  
+
+            $dokter = $this->Pasien_model->get_Dokter();
             $data['jamP']=$this->Pasien_model->get_jam_praktek();
+            $data['dokter'] = $dokter;
+
             $user = $this->session->userdata('userdata');
         
             if($this->form_validation->run() == false){
@@ -66,7 +71,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $this->load->view('Pasien/daftar_praktek',$data);
                 $this->load->view('templates/Pasien/footerPasien');
             }else{
+                $nama = $this->Pasien_model->get_idDokter($this->input->post('dokter'));
+                $id_pasien = $this->Pasien_model->get_idPasien();
+
                 $this->Pasien_model->daftarPraktek($user['username']);
+                $this->Pasien_model->daftarPraktekRiwayat($nama,$id_pasien);
                 $this->session->set_flashdata('flash','ditambah');
                 $this->session->flashdata('flash');
                 redirect('Pasien/daftar_praktek');
@@ -77,5 +86,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
         {
             $username = $this->session->userdata('userdata');
             $data['review'] = $this->Pasien_model->get_review($username['username']);
+        }
+
+        public function update_akun(){
+            $this->load->helper('form');
+            $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('username','Username','required');
+            $this->form_validation->set_rules('email','Email','required');
+            $this->form_validation->set_rules('alamat','Alamat','required');
+            $this->form_validation->set_rules('telp','Telp','required'); 
+            $user = $this->session->userdata('userdata');
+            $data= $this->Pasien_model->get_profile($user['username']);
+            
+            if ($this->form_validation->run() == false) {
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/update_akun',$data);
+                $this->load->view('templates/Pasien/footerPasien');
+            } else {
+                $user2= $this->Pasien_model->update_profile($user['username']);
+                // $this->session->set_userdata('username',$user2);
+                $this->session->set_flashdata('flash','update');
+                $this->session->flashdata('flash');
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/update_akun',$data);
+                $this->load->view('templates/Pasien/footerPasien');
+            }
         }
     }

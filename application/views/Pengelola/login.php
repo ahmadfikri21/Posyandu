@@ -16,6 +16,9 @@
         </nav>
         <div class="container">
             <div class="login-panel">
+            <div class="alert alert-login-dk" role="alert">
+                <?php echo $this->session->flashdata('message'); ?>
+            </div>
                 <h1>Login Pengelola</h1>
                 <small>Welcome Back !</small>
                 <?php echo form_open('pengelola/login') ?>

@@ -24,6 +24,15 @@
 					</select>
 				</div>
 				<div class="form-group">
+					<label for="Dokter">Dokter</label>
+					<select class="form-control" name="dokter">
+						<option value="">Pilih Dokter</option>
+						<?php foreach($dokter as $row){ ?>
+						<option value="<?php echo $row->nama; ?>"><?php echo $row->nama; ?></option>';
+						<?php } ?>
+					</select>
+				</div>
+				<div class="form-group">
 					<label for="lahir">Tanggal Lahir</label>
 					<input type="date" class="form-control" name="lahir">
 				</div>

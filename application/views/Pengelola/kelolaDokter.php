@@ -1,7 +1,14 @@
 <div class="container">
     <div class="panel-kelola-dokter">
         <h1>Tabel Kelola Dokter</h1>
-        <a href="" class="btn btn-info tambah-dk">Tambah Dokter</a>
+        <?php echo form_open('pengelola/searchDK') ?>
+        <div class="form-group form-inline">
+            <label>cari</label>
+            <input type="text" name="cari" class="form-control" placeholder="cari">
+            <input type="submit" value="Cari" class="btn btn-info">
+        </div>
+        <?php form_close(); ?>
+        <a href="<?php echo base_url() ?>Pengelola/tambahDokter" class="btn btn-info tambah-dk">Tambah Dokter</a>
         <table class="table table-striped">
             <thead>
                 <tr class="head-tb-dk">
