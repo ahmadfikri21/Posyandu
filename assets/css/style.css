@@ -483,3 +483,17 @@ footer p{/* mengatur tulisan di footer */
 .tambah-dk{  /* btn tambah kelola dokter */
     margin-bottom:1em;
 }
+
+.section-homepage{
+        background: white;
+        bac: 0.9;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        height: 500px; 
+}
+
+.foto{
+    margin-top:5% ;
+    height: 4cm;
+    width: 3cm;
+}

@@ -113,6 +113,7 @@ class Dokter extends CI_Controller
         session_destroy();
         redirect('Dokter/index');
     }
+    
 
     // public function uploadFoto(){
     //     if($this->session->)

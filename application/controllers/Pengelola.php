@@ -19,7 +19,7 @@
             if($this->Pengelola_model->login_pengelola($data)){
                 $this->session->set_userdata('username', $this->input->post('username'));
                 $this->session->set_userdata('password', $this->input->post('password'));
-                redirect('Pengelola/homepage');
+                redirect('Pengelola/informasi');
                
             }else{
              
@@ -176,7 +176,16 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-    }
+    
+//----------------------------------------------------homepage Pengelola-------------------------------------------------
+        public function informasi(){
+            $username = $this->session->userdata('username');
+            $data['username']=$this->pengelola_model->getProfile($username);
+            $data=$data['username'][0];
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/homepage',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
 
-
+        }
+        }
 ?>

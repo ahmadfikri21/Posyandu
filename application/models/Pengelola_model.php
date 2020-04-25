@@ -161,15 +161,19 @@
         }
 
 
-        public function get_praktek()
-        {
+        public function get_praktek(){
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
      
- 
-
-    
-
-    }
+        public function getProfile($username){
+        $this->db->where('username',$username);
+		$query = $this->db->get('pengelola');
+		if($query->num_rows() > 0){
+			return $query->result_array();
+		}else{
+			return false;
+        }
+        }
+}   
 ?>
