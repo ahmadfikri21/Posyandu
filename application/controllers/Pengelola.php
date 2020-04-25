@@ -32,7 +32,7 @@
 
         public function logout(){
             session_destroy();
-            redirect('Dokter/index');
+            redirect('Pengelola/index');
         }
 
         public function dokter(){
@@ -176,7 +176,6 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-<<<<<<< HEAD
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
         public function informasi(){
@@ -186,8 +185,8 @@
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/homepage',$data);
             $this->load->view("templates/pengelola/footerPengelola");
-=======
 
+        }
         public function tambahJP()
         {
             $semua = $this->pengelola_model->get_praktek();
@@ -237,7 +236,7 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
-    }
+    
 //----------------------------------------------------Pemeriksaan-------------------------------------------------
 
         public function pemeriksaan(){
@@ -281,8 +280,7 @@
         }
 
     }
->>>>>>> 374d4a8740ee1e7991db7aba2f98f3672c298fdf
 
-        }
-        }
+
+        
 ?>

@@ -165,7 +165,6 @@
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
-<<<<<<< HEAD
      
         public function getProfile($username){
         $this->db->where('username',$username);
@@ -176,8 +175,7 @@
 			return false;
         }
         }
-}   
-=======
+   
 
         public function generateidJP($data){
  
@@ -301,5 +299,4 @@
         }
 
     }
->>>>>>> 374d4a8740ee1e7991db7aba2f98f3672c298fdf
 ?>
