@@ -176,6 +176,56 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
+
+        public function tambahJP()
+        {
+            $semua = $this->pengelola_model->get_praktek();
+            
+            $data['id'] = $this->Pengelola_model->generateidJP($semua);
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/tambahJP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function tambahlagiJP()
+        {
+            $this->Pengelola_model->tambahJP();
+            redirect('Pengelola/kelolapraktek');
+        }
+
+        public function deleteJP($id)
+        {
+            $this->Pengelola_model->hapusJP($id);
+            redirect('Pengelola/kelolapraktek');
+        }
+
+        public function updateJP($data)
+        {
+            
+            $dat = $this->Pengelola_model->search_jadwal_byid($data);
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editJP',$dat[0]);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+        public function updatelagiJP() 
+        {
+            $this->Pengelola_model->updateJP();
+            redirect('Pengelola/kelolapraktek');
+        }
+        public function searchJP(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchJP($key)){
+                $data['isiPraktek'] = $this->Pengelola_model->searchJP($key);
+               
+            }else{
+                redirect('Pengelola/kelolapraktek');
+            }
+            
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaJP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
     }
 
 

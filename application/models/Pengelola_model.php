@@ -154,7 +154,7 @@
                 LIKE '%".$key."%' OR tgl_lahir LIKE '%".$key."%' OR kategori LIKE '%".$key."%'";
                 $this->db->from('pasien');
                 $this->db->where($where);
-                $query = $this->db->get();
+                $query = $this->db->get();  
 
                 return $query->result_array();
             }
@@ -166,7 +166,65 @@
             $query = $this->db->get('jadwal_praktek');
             return $query->result_array();
         }
-     
+
+        public function generateidJP($data){
+ 
+            foreach ($data as $key ) {
+                $last = $key['id_jadwal'];
+            }
+            $change = (int)$last;
+            $change++;
+            
+            return $change;
+        }
+
+        
+        public function tambahJP(){
+            $data = array(
+                'id_jadwal' => $this->input->post('id_praktek'),
+                'jam_praktek' => $this->input->post('jam_praktek'),
+            );
+
+            return $this->db->insert('jadwal_praktek',$data);
+        }
+
+        public function hapusJP($id_pasien){
+            return $this->db->delete('jadwal_praktek',array('id_jadwal' => $id_pasien));
+        }
+
+    
+        public function updateJP(){
+            $data = array(
+                'id_jadwal' => $this->input->post('id_praktek'),
+                'jam_praktek' => $this->input->post('jam_praktek'),
+            );
+           
+            $this->db->where('id_jadwal',$this->input->post('id_praktek'));
+            return $this->db->update('jadwal_praktek',$data);
+        }
+
+        public function search_jadwal_byid($id)
+        {
+            $this->db->where('id_jadwal',$id);
+            $this->db->from('jadwal_praktek');
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+        public function searchJP($key)
+        {
+            if($key == ""){
+                return FALSE;
+            }else{
+                $where = "id_jadwal LIKE '%".(int)$key."%' OR jam_praktek LIKE '%".$key."%'";
+                $this->db->from('jadwal_praktek');
+                $this->db->where($where);
+                $query = $this->db->get();  
+                
+
+                return $query->result_array();
+            }
+        }
+
  
 
     
