@@ -176,6 +176,7 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
+<<<<<<< HEAD
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
         public function informasi(){
@@ -185,6 +186,102 @@
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/homepage',$data);
             $this->load->view("templates/pengelola/footerPengelola");
+=======
+
+        public function tambahJP()
+        {
+            $semua = $this->pengelola_model->get_praktek();
+            
+            $data['id'] = $this->Pengelola_model->generateidJP($semua);
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/tambahJP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function tambahlagiJP()
+        {
+            $this->Pengelola_model->tambahJP();
+            redirect('Pengelola/kelolapraktek');
+        }
+
+        public function deleteJP($id)
+        {
+            $this->Pengelola_model->hapusJP($id);
+            redirect('Pengelola/kelolapraktek');
+        }
+
+        public function updateJP($data)
+        {
+            
+            $dat = $this->Pengelola_model->search_jadwal_byid($data);
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editJP',$dat[0]);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+        public function updatelagiJP() 
+        {
+            $this->Pengelola_model->updateJP();
+            redirect('Pengelola/kelolapraktek');
+        }
+        public function searchJP(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchJP($key)){
+                $data['isiPraktek'] = $this->Pengelola_model->searchJP($key);
+               
+            }else{
+                redirect('Pengelola/kelolapraktek');
+            }
+            
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaJP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+    }
+//----------------------------------------------------Pemeriksaan-------------------------------------------------
+
+        public function pemeriksaan(){
+            $data['pemeriksa'] = $this->Pengelola_model->get_Pemeriksaan();
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        } 
+
+        public function editPemeriksaan($id_riwayat){
+            $data['pemeriksa'] = $this->Pengelola_model->get_pemeriksaan($id_riwayat);
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function editPM(){
+            $this->Pengelola_model->editPM($this->input->post('id_riwayat'));
+            redirect('pengelola/pemeriksaan');
+        }
+
+        public function hapusPemeriksaan($id_riwayat){
+            $this->Pengelola_model->hapusPemeriksaan($id_riwayat);
+            redirect('pengelola/pemeriksaan');
+        }
+
+        public function searchPM(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchPM($key)){
+                $data['pemeriksa'] = $this->Pengelola_model->searchPM($key);
+            }else{
+                redirect('Pengelola/pemeriksaan');
+            }
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaPemeriksaan',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+    }
+>>>>>>> 374d4a8740ee1e7991db7aba2f98f3672c298fdf
 
         }
         }
