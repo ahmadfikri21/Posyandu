@@ -29,6 +29,7 @@
                 <input type="text" name="no_telp" class="form-control">
             </div>
             <input type="submit" value="Tambah" class="btn btn-info">
+            <!-- <a href="<?php redirect('Dokter/kelolaDokter') ?>" class="btn btn-danger">Batal</a> -->
         <?php echo form_close() ?>
     </div>
 </div>

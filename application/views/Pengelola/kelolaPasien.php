@@ -19,6 +19,7 @@
                     <th>Jam Praktek</th>
                     <th>Tanggal Lahir</th>
                     <th>Kategori</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

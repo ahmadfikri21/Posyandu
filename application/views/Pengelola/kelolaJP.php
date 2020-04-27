@@ -16,6 +16,7 @@
                     <th>No.</th>
                     <th>ID Praktek</th>
                     <th>Jam Praktek</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
