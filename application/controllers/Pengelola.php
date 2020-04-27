@@ -177,18 +177,7 @@
             $this->load->view("templates/pengelola/footerPengelola");
         }
     
-//----------------------------------------------------homepage Pengelola-------------------------------------------------
-        public function informasi(){
-            $data['informasi']=$this->pengelola_model->getInfo();
-            $this->load->view("templates/pengelola/headerPengelola");
-            $this->load->view('Pengelola/informasi',$data);
-            $this->load->view("templates/pengelola/footerPengelola");
-<<<<<<< HEAD
-        }
-=======
->>>>>>> eee09d755e8f6e8d5645c7446b9f65af2efb3c7f
-
-        }
+        
         public function tambahJP()
         {
             $semua = $this->pengelola_model->get_praktek();
@@ -281,11 +270,53 @@
             $this->load->view("templates/pengelola/footerPengelola");
         }
 
+    
+//----------------------------------------------------homepage Pengelola-------------------------------------------------
+    public function informasi(){
+        $data['informasi']=$this->pengelola_model->getInfo();
+        
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/informasi',$data);
+        $this->load->view("templates/pengelola/footerPengelola");
     }
-<<<<<<< HEAD
-=======
+    public function tambahINFO()
+    {
+        $semua = $this->pengelola_model->getInfo();
+        
+        $data['id'] = $this->Pengelola_model->generateidinfo($semua);
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/tambahinformasi',$data);
+        $this->load->view("templates/pengelola/footerPengelola");
+    }
+
+    public function tambahlagiINFO()
+    {
+        $this->Pengelola_model->tambahINFO();
+        redirect('Pengelola/informasi');
+    }
+
+    public function deleteINFO($id)
+        {
+            $this->Pengelola_model->hapusInfo($id);
+            redirect('Pengelola/informasi');
+        }
+    public function editINFO($data)
+    {
+        $data = $this->Pengelola_model->search_info_id($data);
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/editinformasi',$data[0]);
+        $this->load->view("templates/pengelola/footerPengelola");
+    }
+    public function editlagiINFO()
+    {
+        $this->pengelola_model-> updateINFO();
+        redirect('Pengelola/informasi');
+    }
+    
+}
+
+
 
 
         
->>>>>>> eee09d755e8f6e8d5645c7446b9f65af2efb3c7f
 ?>

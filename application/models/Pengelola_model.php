@@ -161,7 +161,7 @@
         }
      
         public function getInfo(){
-        $this->db->get('informasi')->result();
+        return $this->db->get('informasi')->result_array();
         }
    
 
@@ -286,5 +286,50 @@
             }
         }
 
+        public function generateidinfo($data){
+ 
+            foreach ($data as $key ) {
+                $last = $key['id_informasi'];
+            }
+            $change = (int)$last;
+            $change++;
+            
+            return $change;
+        }
+
+        public function tambahINFO(){
+            $data = array(
+                'id_informasi' => $this->input->post('id_informasi'),
+                'isi' => $this->input->post('isi'),
+                'tgl_dibuat' => $this->input->post('tgl_dibuat')
+            );
+
+            return $this->db->insert('informasi',$data);
+        }
+
+        public function hapusInfo($id){
+            return $this->db->delete('informasi',array('id_informasi' => $id));
+        }
+
+        public function search_info_id($id)
+        {
+            $this->db->where('id_informasi',$id);
+            $this->db->from('informasi');
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+
+        public function updateINFO(){
+            $data = array(
+                'id_informasi' => $this->input->post('id_informasi'),
+                'isi' => $this->input->post('isi'),
+                'tgl_dibuat' => $this->input->post('tgl_dibuat'),
+    
+            );
+            $this->db->where('id_informasi',$this->input->post('id_informasi'));
+            return $this->db->update('informasi',$data);
+        
+
     }
+}
 ?>
