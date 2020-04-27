@@ -16,6 +16,21 @@
             return $query->result_array();
         }
 
+        public function get_idDokter($nama){
+            $this->db->select('id_dokter');
+            $this->db->from('dokter');
+            $this->db->where('nama = "'.$nama.'"');
+            $this->db->limit(1);
+            
+            $query = $this->db->get();
+    
+            if ($query->num_rows() > 0) {
+                return $query->row()->id_dokter;
+            }
+    
+            return false;
+        }
+
         public function updateDK(){
             $data = array(
                 'id_dokter' => $this->input->post('id_dokter'),
@@ -123,22 +138,46 @@
 
         public function tambahPS(){
             $data = array(
-                'id_pasien' => $this->input->post('id_pasien'),
                 'nama' => $this->input->post('nama'),
                 'tanggal' => $this->input->post('tanggal'),
                 'jam_praktek' => $this->input->post('jam_praktek'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
-                'kategori' => $this->input->post('kategori')
+                'kategori' => $this->input->post('kategori'),
+                'pendaftar' => $this->input->post('pendaftar')
             );
 
             return $this->db->insert('pasien',$data);
+        }
+
+        public function tambahPsRiwayat($dokter,$id){
+            $riwayat = array(
+                "id_dokter" => $dokter,
+                "id_pasien" => $id
+            );
+    
+            return $this->db->insert('riwayat',$riwayat);
         }
 
         public function hapusPS($id_pasien){
             return $this->db->delete('pasien',array('id_pasien' => $id_pasien));
         }
 
-       
+        public function get_idPasien(){
+            $query =$this->db->select('id_pasien')->order_by('id_pasien',"desc")->limit(1)->get('pasien')->row();
+    
+            $this->db->select('id_pasien');
+            $this->db->from('pasien');
+            $this->db->order_by('id_pasien','DESC');
+            $this->db->limit(1);
+    
+            $query = $this->db->get();
+    
+            if ($query->num_rows() > 0) {
+                return $query->row()->id_pasien + 1;
+            }
+    
+            return false;
+        }
 
         public function searchPS($key){
             if($key == ""){
@@ -154,6 +193,11 @@
             }
         }
 
+        public function get_User(){
+            $query = $this->db->get('user');
+
+            return $query->result_array();
+        }
 
         public function get_praktek(){
             $query = $this->db->get('jadwal_praktek');
@@ -341,8 +385,5 @@
         
 
     }
-<<<<<<< HEAD
-=======
 }
->>>>>>> 426db953a55887e6bf8d45def6d386ca1debbd6e
 ?>

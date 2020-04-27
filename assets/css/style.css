@@ -19,6 +19,10 @@
     margin-right: 2em;
 }
 
+.dropdown-item{
+    color:black;
+}
+
 .container-body{ /* mengatur background homepage menggunakan container */
     background:url('../css/img/background-bayi.jpg');
     width: 100%;
@@ -490,7 +494,7 @@ footer p{/* mengatur tulisan di footer */
 
 .section-homepage{
         background: white;
-        bac: 0.9;
+        /* bac: 0.9; */
         margin-top: 5%;
         margin-bottom: 5%;
         height: 500px; 

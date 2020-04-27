@@ -126,21 +126,30 @@
         }
 
         public function tambahPasien(){
+            $data['pendaftar'] = $this->Pengelola_model->get_User();
+            $data['dokter'] = $this->Pengelola_model->get_Dokter();
+            $data['jam'] = $this->Pengelola_model->get_Praktek();
+
             $this->load->view("templates/pengelola/headerPengelola");
-            $this->load->view('Pengelola/tambahPasien');
+            $this->load->view('Pengelola/tambahPasien',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
 
         public function tambahPS(){
-            $this->form_validation->set_rules('id_pasien','Id Pasien','required');
+            $this->form_validation->set_rules('pendaftar','Pendaftar','required');
             $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('dokter','Dokter','required');
             $this->form_validation->set_rules('tanggal','Tanggal','required');
             $this->form_validation->set_rules('jam_praktek','Jam Praktek','required');
-            $this->form_validation->set_rules('tgl_lahir','Tgl Lahir','required');
+            $this->form_validation->set_rules('tgl_lahir','Tanggal Lahir','required');
             $this->form_validation->set_rules('kategori','Kategori','required');
             
             if($this->form_validation->run()){
+                $dokter = $this->Pengelola_model->get_IdDokter($this->input->post('dokter'));
+                $id_pasien = $this->Pengelola_model->get_IdPasien();
+
                 $this->Pengelola_model->tambahPS();
+                $this->Pengelola_model->tambahPsRiwayat($dokter,$id_pasien);
                 redirect('Pengelola/kelolapasien');
             }else{
                 $this->load->view("templates/pengelola/headerPengelola");
@@ -178,14 +187,6 @@
         }
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
-        public function informasi(){
-            $username = $this->session->userdata('username');
-            $data['username']=$this->pengelola_model->getProfile($username);
-            $data=$data['username'][0];
-            $this->load->view("templates/pengelola/headerPengelola");
-            $this->load->view('Pengelola/homepage',$data);
-            $this->load->view("templates/pengelola/footerPengelola");
-        }
         
         public function tambahJP()
         {
@@ -281,13 +282,23 @@
 
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
-    public function informasi(){
-        $data['informasi']=$this->pengelola_model->getInfo();
+    // public function informasi(){
+    //     $data['informasi']=$this->pengelola_model->getInfo();
         
+    //     $this->load->view("templates/pengelola/headerPengelola");
+    //     $this->load->view('Pengelola/informasi',$data);
+    //     $this->load->view("templates/pengelola/footerPengelola");
+    // }
+
+    public function informasi(){
+        $username = $this->session->userdata('username');
+        $data['username']=$this->pengelola_model->getProfile($username);
+        $data=$data['username'][0];
         $this->load->view("templates/pengelola/headerPengelola");
-        $this->load->view('Pengelola/informasi',$data);
+        $this->load->view('Pengelola/homepage',$data);
         $this->load->view("templates/pengelola/footerPengelola");
     }
+
     public function tambahINFO()
     {
         $semua = $this->pengelola_model->getInfo();
@@ -303,8 +314,6 @@
         $this->Pengelola_model->tambahINFO();
         redirect('Pengelola/informasi');
     }
-<<<<<<< HEAD
-=======
 
     public function deleteINFO($id)
         {
@@ -330,5 +339,4 @@
 
 
         
->>>>>>> 426db953a55887e6bf8d45def6d386ca1debbd6e
 ?>
