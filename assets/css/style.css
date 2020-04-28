@@ -200,6 +200,25 @@ footer p{/* mengatur tulisan di footer */
     margin:0;
 }
 
+.panel-head-pass{
+    padding:2em;
+    background:#00A8CC;
+    margin-top:1em;
+}
+
+.panel-head-pass h1{
+    color:white;
+    text-align:center;
+    font-weight: bold;
+}
+
+.panel-form-pass{
+    background:white;
+    padding:1em;
+    height:70%;
+    margin-bottom:1em;
+}
+
 /*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
 .footer-dk p{
     color:black;

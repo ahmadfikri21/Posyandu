@@ -112,4 +112,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $this->load->view('templates/Pasien/footerPasien');
             }
         }
+
+        public function updatePass(){
+            $this->load->view('templates/Pasien/headerPasien');
+             $this->load->view('Pasien/updatePass');
+             $this->load->view('templates/Pasien/footerPasien');
+         } 
+
+         public function updatePwd(){
+            $this->form_validation->set_rules('passLama','Password Lama','required');
+            $this->form_validation->set_rules('passBaru','Password Baru','required');
+            $this->form_validation->set_rules('passBaru2','Confirm Password','required|matches[passBaru]');
+
+            if($this->form_validation->run()){
+                $user = $this->session->userdata('userdata');
+                $pass = $this->input->post('passLama');
+
+                $passDB = $this->Pasien_model->get_PassUser($user['username']);
+                if(password_verify($pass,$passDB)){
+                    $this->Pasien_model->updatePwd($user['username']);
+                    redirect('pasien/index');
+                }else{
+                    redirect('Pasien/updatePass');   
+                }
+            }else{
+                $this->load->view('templates/Pasien/headerPasien');
+                $this->load->view('Pasien/updatePass');
+                $this->load->view('templates/Pasien/footerPasien');
+            }
+         }
+
     }

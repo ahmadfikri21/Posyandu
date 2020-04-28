@@ -244,4 +244,23 @@ class Pasien_model extends CI_Model
         return $user;
     }
 
+    public function get_PassUser($username){
+        $this->db->select('password');
+        $this->db->from('user');
+        $this->db->where('username = "'.$username.'" ');
+        $query = $this->db->get();
+        return $query->row()->password;
+    }
+
+    public function updatePwd($username){
+        $data = array(
+            'password' => password_hash($this->input->post('passBaru'), PASSWORD_BCRYPT)
+        );
+
+        $this->db->from('user');
+        $this->db->where('username',$username);
+        $this->db->update('user',$data);
+        return $username;
+    }
+
 }
