@@ -8,11 +8,7 @@
             <input type="submit" value="Cari" class="btn btn-info">
         </div> 
         <?php form_close(); ?>
-<<<<<<< HEAD
-        <a href="<?php echo base_url() ?>pengelola/tambahDokter" class="btn btn-info tambah-dk">Tambah Dokter</a>
-=======
         <a href="<?php echo base_url() ?>Pengelola/tambahDokter" class="btn btn-info tambah-dk">Tambah Dokter</a> 
->>>>>>> 426db953a55887e6bf8d45def6d386ca1debbd6e
         <table class="table table-striped">
             <thead>
                 <tr class="head-tb-dk">
