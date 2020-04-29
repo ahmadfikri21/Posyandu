@@ -5,7 +5,7 @@
         <?php echo validation_errors() ?>
         <?php echo form_open('pengelola/tambahlagiJP') ?>
         <div class="form-group">
-        <label>Id Pasien</label>
+        <label>Id Jadwal</label>
                 <input type="text" name="id_praktek" class="form-control"  value="<?=$id?>"readonly>
             </div>
             <div class="form-group">

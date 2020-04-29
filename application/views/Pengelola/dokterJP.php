@@ -1,6 +1,6 @@
 <div class="container">
     <div class="panel-kelola-dokter">
-        <h1>Kelola Jadwal Dokter</h1>
+        <h1>Kelola Jadwal Dokter <?= $dokter[0]['nama']?></h1>
         <?php echo form_open('pengelola/searchDK') ?>
        <div class="form-group form-inline">
             <label>cari</label>
@@ -8,31 +8,26 @@
             <input type="submit" value="Cari" class="btn btn-info">
         </div> 
         <?php form_close(); ?>
-        <a href="<?php echo base_url() ?>Pengelola/tambahDokter" class="btn btn-info tambah-dk">Tambah Jadwal Dokter</a> 
+        <a href="<?php echo base_url('Pengelola/dokter') ?>" class="btn btn-info tambah-dk">Kembali</a> 
+        <a href="<?php echo base_url('Pengelola/tambahDK_JP/'.$dokter[0]['id_dokter']) ?>" class="btn btn-info tambah-dk">Tambah Jadwal Dokter</a> 
         <table class="table table-striped">
             <thead>
                 <tr class="head-tb-dk">
                     <th>No.</th>
-                    <th>ID Dokter</th>
-                    <th>Nama</th>
-                    <th>Username</th>
-                    <th>no Telp</th>
+                    <th>ID Jadwal</th>
+                    <th>Jam Praktek</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1 ?>
-                <?php foreach($isiDokter as $key): ?>
+                <?php foreach($jadwal as $key): ?>
                 <tr>
                     <td><?= $i++; ?></td>
-                    <td><?= $key['id_dokter'] ?></td>
-                    <td><?= $key['nama'] ?></td>
-                    <td><?= $key['username'] ?></td>
-                    <td><?= $key['no_telp'] ?></td>
+                    <td><?= $key['id_jadwal'] ?></td>
+                    <td><?= $key['jam_praktek'] ?></td>
                      <td>
-                         
-                         <a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/editDokter/' . $key['id_dokter']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusDokter/' . $key['id_dokter']); ?>">Hapus</a>
-                        <a class="btn btn btn-info btn-small" href="<?php echo site_url( $key['id_dokter']); ?>">Jadwal Praktek</a>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteDK_JP/' . $key['id_jadwal']); ?>">Hapus</a>
+                      
                         </td> 
                 </tr>
                 <?php endforeach; ?>

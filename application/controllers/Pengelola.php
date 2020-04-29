@@ -84,8 +84,14 @@
         }
 
         public function hapusDokter($id_dokter){
+            
             $this->Pengelola_model->hapusDK($id_dokter);
+            $data = $this->Pengelola_model->searchJP($id_dokter);
+            $this->pengelola_model->deleteDK_JP($data[0]['id_jadwal']);
             redirect('Pengelola/dokter');
+            
+            
+            
         }
 
         public function searchDK(){
@@ -100,14 +106,6 @@
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/kelolaDokter',$data);
             $this->load->view("templates/pengelola/footerPengelola");
-        }
-        public function dokterJP($id_dokter)
-        {
-            $data['isiDokter'] = $this->Pengelola_model->get_Dokter($id_dokter);
-            var_dump($data);
-            $this->load->view("templates/pengelola/headerPengelola");
-           $this->load->view("Pengelola/dokterJP",$data);
-            $this->load->view("templates/dokter/footerHome");
         }
 
         //----------------------------------------------------PASIEN-------------------------------------------------
@@ -245,6 +243,38 @@
             $this->load->view('Pengelola/kelolaJP',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
+
+        public function deleteDK_JP($id)
+        {
+            $data = $this->Pengelola_model->searchJP($id);
+            $this->pengelola_model->deleteDK_JP($id);
+            redirect('Pengelola/dokterJP/'.$data[0]['id_dokter']);
+        }
+
+        public function tambahDK_JP($id)
+        {
+            $data['Praktek'] = $this->pengelola_model->get_praktek_DKNull();
+            $data['dokter'] = $this->Pengelola_model->searchDK($id);
+            $data['dokter'] = $data['dokter'][0];
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/tambahDK_JP',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+        public function dokterJP($id_dokter)
+        {
+            $data['jadwal'] = $this->Pengelola_model-> getdokter_jadwal($id_dokter);
+            $data['dokter'] = $this->Pengelola_model->searchDK($id_dokter);
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view("Pengelola/dokterJP",$data);
+            $this->load->view("templates/dokter/footerHome");
+        }
+        public function tambahlagiDKJP()
+        {
+            $id = $this->input->post('id_praktek');
+            $this->Pengelola_model->updateDK_JP();
+            redirect('Pengelola/dokterJP/'.$id);
+        }
+
     
 //----------------------------------------------------Pemeriksaan-------------------------------------------------
 
@@ -298,15 +328,7 @@
          $this->load->view("templates/pengelola/footerPengelola");
      }
 
-  //  public function informasi(){
-       // $username = $this->session->userdata('username');
-      //  $data['username']=$this->pengelola_model->getProfile($username);
-      //  $data=$data['username'][0];
-      //  $this->load->view("templates/pengelola/headerPengelola");
-     //   $this->load->view('Pengelola/informasi',$data);
-     //   $this->load->view("templates/pengelola/footerPengelola");
-   // }
-
+     
     public function tambahINFO()
     {
         $semua = $this->pengelola_model->getInfo();
