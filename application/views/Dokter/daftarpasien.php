@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?=
+            <?php
             $count = 1;
             foreach ($value as $key) {
                     

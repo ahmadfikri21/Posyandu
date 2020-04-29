@@ -69,12 +69,15 @@ class Dokter extends CI_Controller
         $this->load->view("templates/Dokter/footerHome");
     }
 
-    public function inputlaporan(){ 
-        $data = substr(current_url(), strrpos(current_url(), '/') + 1);
+    public function inputlaporan($data){ 
+        // headernya
+        $username = $this->session->userdata('username');
+        $data1['dataprofile']=$this->dokter_model->get_profile($username);
+        $data1=$data1['dataprofile'][0]; 
+        // headernya
         $data = $this->dokter_model->get_riwayat_byid($data);
         $data = $data[0];
-       
-        $this->load->view("templates/dokter/headerProfile",$data);
+        $this->load->view("templates/dokter/headerProfile",$data1);
         $this->load->view("Dokter/inputlaporan",$data);
         $this->load->view("templates/dokter/footerHome");
     }
@@ -136,6 +139,8 @@ class Dokter extends CI_Controller
         $this->load->view("Dokter/daftarpasien",$dat);
         $this->load->view("templates/dokter/footerHome");
     }
+
+
 
     // public function uploadFoto(){
     //     if($this->session->)

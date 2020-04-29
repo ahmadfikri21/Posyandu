@@ -101,6 +101,14 @@
             $this->load->view('Pengelola/kelolaDokter',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
+        public function dokterJP($id_dokter)
+        {
+            $data['isiDokter'] = $this->Pengelola_model->get_Dokter($id_dokter);
+            var_dump($data);
+            $this->load->view("templates/pengelola/headerPengelola");
+           $this->load->view("Pengelola/dokterJP",$data);
+            $this->load->view("templates/dokter/footerHome");
+        }
 
         //----------------------------------------------------PASIEN-------------------------------------------------
         public function kelolapasien()
@@ -282,22 +290,22 @@
 
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
-    // public function informasi(){
-    //     $data['informasi']=$this->pengelola_model->getInfo();
+     public function informasi(){
+         $data['informasi']=$this->pengelola_model->getInfo();
         
-    //     $this->load->view("templates/pengelola/headerPengelola");
-    //     $this->load->view('Pengelola/informasi',$data);
-    //     $this->load->view("templates/pengelola/footerPengelola");
-    // }
+         $this->load->view("templates/pengelola/headerPengelola");
+         $this->load->view('Pengelola/informasi',$data);
+         $this->load->view("templates/pengelola/footerPengelola");
+     }
 
-    public function informasi(){
-        $username = $this->session->userdata('username');
-        $data['username']=$this->pengelola_model->getProfile($username);
-        $data=$data['username'][0];
-        $this->load->view("templates/pengelola/headerPengelola");
-        $this->load->view('Pengelola/homepage',$data);
-        $this->load->view("templates/pengelola/footerPengelola");
-    }
+  //  public function informasi(){
+       // $username = $this->session->userdata('username');
+      //  $data['username']=$this->pengelola_model->getProfile($username);
+      //  $data=$data['username'][0];
+      //  $this->load->view("templates/pengelola/headerPengelola");
+     //   $this->load->view('Pengelola/informasi',$data);
+     //   $this->load->view("templates/pengelola/footerPengelola");
+   // }
 
     public function tambahINFO()
     {
@@ -332,6 +340,7 @@
         $this->pengelola_model-> updateINFO();
         redirect('Pengelola/informasi');
     }
+
     
 }
 

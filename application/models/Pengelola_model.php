@@ -2,6 +2,7 @@
     class Pengelola_model extends CI_Model{
         public function __construct(){
             $this->load->database();
+            date_default_timezone_set("Asia/Jakarta");
         }
 
         public function get_Dokter($id_dokter = NULL){
@@ -55,12 +56,13 @@
             return $this->db->insert('dokter',$data);
         }
 
+     
         public function hapusDK($id_dokter){
             return $this->db->delete('dokter',array('id_dokter' => $id_dokter));
         }
 
         public function generateidDk($data){
- 
+            $last = "DK000";
             foreach ($data as $key ) {
                 $last = substr($key['id_dokter'],2);
             }
@@ -220,7 +222,7 @@
    
 
         public function generateidJP($data){
- 
+            $last = 0;
             foreach ($data as $key ) {
                 $last = $key['id_jadwal'];
             }
@@ -341,7 +343,7 @@
         }
 
         public function generateidinfo($data){
- 
+            $last = 0;
             foreach ($data as $key ) {
                 $last = $key['id_informasi'];
             }
