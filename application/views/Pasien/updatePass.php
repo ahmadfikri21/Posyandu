@@ -18,7 +18,7 @@
             <input type="password" name="passBaru2" class="form-control">
         </div>
         <input type="submit" value="Ubah" class="btn btn-info">
-        <a href="<?php echo base_url() ?>Pasien" class="btn btn-danger">Batal</a>
+        <a href="<?php echo base_url() ?>Pasien/profil" class="btn btn-danger">Batal</a>
     <?php echo form_close(); ?>
     </div>
 </div>
