@@ -2,11 +2,15 @@
    
         <?php echo form_open('Dokter/searchDK') ?>
             <form class="form-inline form-search-dk" >
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                <button type="button" class="btn btn-primary btn-inputreview-dk">Input Review</button>   
+                <div class="form-group form-inline">
+                    <input class="form-control box-search-dk" type="search" placeholder="Search" aria-label="Search" name="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </div>
+                
             </form>
         <?php echo form_close() ?>
+       
+        
         <center>
         
         <section class="table-background-dk">
@@ -45,16 +49,7 @@
                 
     
     <section class="help-daftarpasien-dk">
-            <center>
-            <ul class="pagination justify-content-center page-daftar-dk">
-                <li class="page-item"><a class="page-link" href="<?=current_url();?>">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-            </center>
-        <a href="<?=site_url('h')?>" >Bantuan</a> | 
-        <a href="<?=site_url('Homepage/tentangkami')?>" >Tentang Kami</a>
+        <a href="<?=site_url('h')?>" >| Bantuan</a> 
+        <a href="<?=site_url('Homepage/tentangkami')?>" >Tentang Kami |</a>
     </section>   
 </section>

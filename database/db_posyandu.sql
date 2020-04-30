@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2020 at 09:06 AM
+-- Generation Time: Apr 30, 2020 at 11:33 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -45,18 +45,20 @@ CREATE TABLE `dokter` (
   `nama` varchar(70) NOT NULL,
   `username` varchar(70) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `no_telp` int(11) NOT NULL
+  `no_telp` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `nama`, `username`, `password`, `no_telp`) VALUES
-('DK001', 'Rusdi', 'rusdi123', '123', 12),
-('DK002', 'aa', 'aaa', '$2y$10$kuVNqqRUFil8XKAUw2yGae5GHyiVBvnIv', 12312333),
-('DK003', 'q', 'q', '$2y$10$j79tkYDYTzdK2BEx3zPWQekjRzUNID7Hu', 123),
-('DK004', 'd', 'd', '$2y$10$QLPljOrmVISPFX/UmsSm7.gFARv24.W3FIMe8hEXx614DuX9HQgKy', 132);
+INSERT INTO `dokter` (`id_dokter`, `nama`, `username`, `password`, `no_telp`, `img`) VALUES
+('DK001', 'Rusdi', 'rusdi123', '123', 12, ''),
+('DK002', 'aa', 'aaa', '$2y$10$kuVNqqRUFil8XKAUw2yGae5GHyiVBvnIv', 12312333, ''),
+('DK003', 'q', 'q', '$2y$10$j79tkYDYTzdK2BEx3zPWQekjRzUNID7Hu', 123, ''),
+('DK004', 'd', 'd', '$2y$10$QLPljOrmVISPFX/UmsSm7.gFARv24.W3FIMe8hEXx614DuX9HQgKy', 132, ''),
+('DK005', 'popo', 'asd', '$2y$10$faBYqCpYIz7/IBLFSGBemOfHkKTPUFhPmR5N.Qps2Bs8SOcs4spcW', 123, '');
 
 -- --------------------------------------------------------
 
@@ -98,7 +100,7 @@ CREATE TABLE `jadwal_praktek` (
 
 INSERT INTO `jadwal_praktek` (`id_jadwal`, `id_dokter`, `jam_praktek`) VALUES
 (1, 'DK001', '11.00'),
-(2, '', '13.00');
+(2, 'DK005', '13.00');
 
 -- --------------------------------------------------------
 
@@ -155,7 +157,8 @@ CREATE TABLE `review` (
   `nama` varchar(70) NOT NULL,
   `kualitas` varchar(30) NOT NULL,
   `kritik` varchar(255) NOT NULL,
-  `saran` varchar(255) NOT NULL
+  `saran` varchar(255) NOT NULL,
+  `tgl_dibuat` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

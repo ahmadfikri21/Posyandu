@@ -2,6 +2,20 @@
 <div class="panel-kelola-dokter">
         <h1>Form Edit Data Dokter</h1>
         <?php echo form_open('Dokter/updateDK') ?>
+            <center>
+            <div class="file-field">
+                <div class="mb-4">
+                    <img class="img-dk" alt="example placeholder avatar" src="">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="btn btn-mdb-color btn-rounded float-left">
+                        <span>Add photo</span>
+                        <input type="file">
+                    </div>
+                </div>
+            </div>
+            </center>
+
             <div class="form-group">
                 <label>Id Dokter</label>
                 <input type="text" name="id_dokter" class="form-control" value="<?php echo $dokter['id_dokter'] ?>" readonly>
