@@ -362,7 +362,29 @@
         $this->pengelola_model-> updateINFO();
         redirect('Pengelola/informasi');
     }
+//----------------------------------------------------Review--------------------------------------------------------------
 
+    public function review(){
+        $data['review'] = $this->Pengelola_model->getReview();
+
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/kelolaReview',$data);
+        $this->load->view("templates/pengelola/footerPengelola");
+    }
+
+    public function searchReview(){
+        $key = $this->input->post('cari');
+            
+        if($this->Pengelola_model->searchReview($key)){
+            $data['review'] = $this->Pengelola_model->searchReview($key);
+        }else{
+            redirect('Pengelola/review');
+       }
+
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/kelolaReview',$data);
+        $this->load->view("templates/pengelola/footerPengelola");
+    }
     
 }
 

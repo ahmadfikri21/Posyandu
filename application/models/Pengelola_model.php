@@ -423,5 +423,25 @@
         
 
     }
+
+        public function getReview(){
+            $query = $this->db->get('review');
+            return $query->result_array();
+        }
+
+        public function searchReview($cari){
+            if($cari == ""){
+                return FALSE;
+            }else{
+                $where = "nama LIKE '%" . $cari . "%' OR kualitas LIKE '%" . $cari . "%' OR kritik LIKE '%" . $cari . "%' OR
+                saran LIKE '%".$cari."%' OR tgl_dibuat LIKE '%".$cari."%' ";
+                $this->db->from('review');
+                $this->db->where($where);
+
+                $query = $this->db->get();
+
+                return $query->result_array();   
+            }
+        }
 }
 ?>
