@@ -8,6 +8,7 @@ class Dokter extends CI_Controller
     $this->load->model('dokter_model');
     $this->load->library('session');
     $this->load->library('table');
+    
   
     }
     public function index()
@@ -47,6 +48,8 @@ class Dokter extends CI_Controller
         $username = $this->session->userdata('username');
         $data['datadokter'] = $this->dokter_model->get_profile($username);
         $data = $data['datadokter'][0];
+ 
+      
         $this->load->view("templates/dokter/headerProfile",$data);
         $this->load->view("Dokter/homepage",$data);
         $this->load->view("templates/dokter/footerHome");
@@ -104,7 +107,6 @@ class Dokter extends CI_Controller
         $data = $this->dokter_model->get_profile($username);
         $datahead = $data[0];
         $data['dokter'] = $data[0];
-        
         $this->load->view("templates/dokter/headerProfile",$datahead);
         $this->load->view("Dokter/editdokter",$data);
         $this->load->view("templates/dokter/footerHome");
