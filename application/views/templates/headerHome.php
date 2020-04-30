@@ -19,5 +19,15 @@
                     <li><a href="<?php echo base_url(); ?>">Home</a></li>
                     <li><a href="<?php echo base_url(); ?>homepage/tentangKami">Tentang Kami</a></li>
                     <li><a href="<?php echo base_url() ?>Homepage/login">Sign In</a></li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Login
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-style">
+                        <a class="dropdown-item" href="<?php echo base_url() ?>Homepage/login">Pasien</a><br>
+                        <a class="dropdown-item" href="<?php echo base_url() ?>Pengelola/">Pengelola</a><br>
+                        <a class="dropdown-item" href="<?php echo base_url() ?>Dokter/">Dokter</a>
+                    </div>
+                    </li>
                 </ul>
         </nav>

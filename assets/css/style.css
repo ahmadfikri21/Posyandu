@@ -19,8 +19,14 @@
     margin-right: 2em;
 }
 
-.dropdown-item{
-    color:black;
+.navbar-nav li .dropdown-menu{
+    background:#0C7B93;
+    border-radius: 0;
+    
+}
+
+.navbar-nav li .dropdown-menu a{
+    padding:1em;
 }
 
 .container-body{ /* mengatur background homepage menggunakan container */
@@ -219,6 +225,36 @@ footer p{/* mengatur tulisan di footer */
     margin-bottom:1em;
 }
 
+.panel-profil{
+    padding:1em;
+    background:#fff;
+    height: 75%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+}
+
+.panel-profil h1{
+    text-align:center;
+}
+
+.btn-profil-container{
+    display:flex;
+    height:25%;
+    margin: 0 auto;
+}
+
+.btn-profil-pas{
+    height: 100%;
+    width: 240px;
+    color: white;
+    background-color: #00A8CC;
+    opacity: 1.0;
+    margin: 20px;
+    text-decoration: none !important;
+    flex:50%;
+    text-align: center;
+}
 /*-----------------------------------------------------CSS DOKTER-------------------------------------------------------------*/
 .footer-dk p{
     color:black;

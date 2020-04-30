@@ -28,6 +28,7 @@
 					</div>
 					<div class="container text-center " style="min-width: 100%">
 					<button type="submit" class="btn btn-primary" style="background-color: #00A8CC; width: 500px; margin-top: 20px">Update Profile</button>
+					<a href="<?php echo base_url() ?>Pasien/profil" class="btn btn-danger" style="width: 500px; margin-top: 20px">Batal</a>
 					</div>
 				<?php echo form_close() ?>
 			</div>

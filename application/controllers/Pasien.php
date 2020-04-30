@@ -142,4 +142,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             }
          }
 
+         public function profil(){
+            $this->load->view('templates/Pasien/headerPasien');
+            $this->load->view('Pasien/profil');
+            $this->load->view('templates/Pasien/footerPasien');
+         }
+
     }
