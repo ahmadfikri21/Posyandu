@@ -419,15 +419,19 @@ footer p{/* mengatur tulisan di footer */
     height:  80%;
     background:url(../css/img/rgg.jpg) ;
     padding: 30px;
-    margin-bottom  : 100px ;
+   
 }
 .form-search-dk{
     margin-top: 5%;
     
 }
+.box-search-dk{
+    width: 30%;
+}
 .btn-inputreview-dk{
     float: right;
     background-color: 00A79D;
+    
 
 }
 .tabel-pasien-dk tbody th{
@@ -447,12 +451,10 @@ footer p{/* mengatur tulisan di footer */
     height: 80%;
 
 }
-.help-daftarpasien-dk{
-    background:transparent;
-}
+
 
 .help-daftarpasien-dk a{
-    color: rgba(94, 98, 103, 1);
+    color: gray;
     font-size: 20px;
     float: right;
     background:transparent;
@@ -524,10 +526,8 @@ footer p{/* mengatur tulisan di footer */
 }
 
 .panel-kelola-dokter{
-    background:#fff;
+    background:whitesmoke;
     padding:2em;
-    margin-top: 1em;
-    margin-bottom :1em;
     height: auto;
 }
 

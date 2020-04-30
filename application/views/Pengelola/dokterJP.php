@@ -3,7 +3,6 @@
         <h1>Kelola Jadwal Dokter <?= $dokter[0]['nama']?></h1>
         <?php echo form_open('pengelola/searchDK') ?>
        <div class="form-group form-inline">
-            <label>cari</label>
             <input type="text" name="cari" class="form-control" placeholder="cari">
             <input type="submit" value="Cari" class="btn btn-info">
         </div> 
