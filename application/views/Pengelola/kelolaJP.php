@@ -15,6 +15,7 @@
                 <tr class="head-tb-dk">
                     <th>No.</th>
                     <th>ID Praktek</th>
+                    <th>ID Dokter</th>
                     <th>Jam Praktek</th>
                     <th>Aksi</th>
                 </tr>
@@ -25,6 +26,7 @@
                 <tr>
                     <td><?= $i++; ?></td>
                     <td><?= $praktek['id_jadwal'] ?></td>
+                    <td><?php if($praktek['id_dokter']==''){echo 'Kosong';}else{echo $praktek['id_dokter'];} ?></td>
                     <td><?= $praktek['jam_praktek'] ?></td>
                     <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/updateJP/' . $praktek['id_jadwal']); ?>">Edit</a>
                         <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteJP/' . $praktek['id_jadwal']); ?>">Hapus</a></td>

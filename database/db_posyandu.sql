@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2020 at 12:08 PM
+-- Generation Time: Apr 30, 2020 at 09:06 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -44,7 +44,7 @@ CREATE TABLE `dokter` (
   `id_dokter` varchar(20) NOT NULL,
   `nama` varchar(70) NOT NULL,
   `username` varchar(70) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `no_telp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -53,7 +53,10 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`id_dokter`, `nama`, `username`, `password`, `no_telp`) VALUES
-('DK001', 'Rusdi', 'rusdi123', '123', 723523451);
+('DK001', 'Rusdi', 'rusdi123', '123', 12),
+('DK002', 'aa', 'aaa', '$2y$10$kuVNqqRUFil8XKAUw2yGae5GHyiVBvnIv', 12312333),
+('DK003', 'q', 'q', '$2y$10$j79tkYDYTzdK2BEx3zPWQekjRzUNID7Hu', 123),
+('DK004', 'd', 'd', '$2y$10$QLPljOrmVISPFX/UmsSm7.gFARv24.W3FIMe8hEXx614DuX9HQgKy', 132);
 
 -- --------------------------------------------------------
 
@@ -85,9 +88,17 @@ INSERT INTO `informasi` (`id_informasi`, `isi`, `tgl_dibuat`) VALUES
 
 CREATE TABLE `jadwal_praktek` (
   `id_jadwal` int(11) NOT NULL,
+  `id_dokter` varchar(25) NOT NULL,
   `jam_praktek` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `jadwal_praktek`
+--
+
+INSERT INTO `jadwal_praktek` (`id_jadwal`, `id_dokter`, `jam_praktek`) VALUES
+(1, 'DK001', '11.00'),
+(2, '', '13.00');
 
 -- --------------------------------------------------------
 
@@ -221,7 +232,8 @@ ALTER TABLE `informasi`
 -- Indexes for table `jadwal_praktek`
 --
 ALTER TABLE `jadwal_praktek`
-  ADD PRIMARY KEY (`id_jadwal`);
+  ADD PRIMARY KEY (`id_jadwal`),
+  ADD KEY `id_dokter` (`id_dokter`);
 
 --
 -- Indexes for table `pasien`
@@ -275,7 +287,7 @@ ALTER TABLE `informasi`
 -- AUTO_INCREMENT for table `jadwal_praktek`
 --
 ALTER TABLE `jadwal_praktek`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pasien`

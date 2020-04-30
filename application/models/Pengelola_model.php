@@ -2,6 +2,7 @@
     class Pengelola_model extends CI_Model{
         public function __construct(){
             $this->load->database();
+            date_default_timezone_set("Asia/Jakarta");
         }
 
         public function get_Dokter($id_dokter = NULL){
@@ -55,12 +56,16 @@
             return $this->db->insert('dokter',$data);
         }
 
+      
+
         public function hapusDK($id_dokter){
-            return $this->db->delete('dokter',array('id_dokter' => $id_dokter));
+                return $this->db->delete('dokter',array('id_dokter' => $id_dokter));
+           
+       
         }
 
         public function generateidDk($data){
- 
+            $last = "DK000";
             foreach ($data as $key ) {
                 $last = substr($key['id_dokter'],2);
             }
@@ -183,8 +188,8 @@
             if($key == ""){
                 return FALSE;
             }else{
-                $where = "id_pasien LIKE '%".$key."%' OR nama LIKE '%".$key."%' OR tanggal LIKE '%".$key."%' OR jam_praktek 
-                LIKE '%".$key."%' OR tgl_lahir LIKE '%".$key."%' OR kategori LIKE '%".$key."%'";
+                $where = "id_pasien LIKE '%".$key."%' OR nama LIKE '%".$key."%' OR tanggal LIKE '".$key."' OR jam_praktek 
+                LIKE '".$key."' OR tgl_lahir LIKE '".$key."' OR kategori LIKE '%".$key."%'";
                 $this->db->from('pasien');
                 $this->db->where($where);
                 $query = $this->db->get();  
@@ -220,7 +225,7 @@
    
 
         public function generateidJP($data){
- 
+            $last = 0;
             foreach ($data as $key ) {
                 $last = $key['id_jadwal'];
             }
@@ -244,6 +249,38 @@
             return $this->db->delete('jadwal_praktek',array('id_jadwal' => $id_pasien));
         }
 
+        public function getdokter_jadwal($id)
+        {
+            $this->db->from('jadwal_praktek');
+            $this->db->where('id_dokter',$id);
+            $query = $this->db->get();
+            return $query->result_array();
+        }
+
+        public function deleteDK_JP($id)
+        {
+            $this->db->where('id_jadwal',$id);
+            $this->db->set('id_dokter','');
+            $this->db->update('jadwal_praktek');
+
+        }
+
+        public function get_praktek_DKNull(){
+            $this->db->where('id_dokter','');
+            $query = $this->db->get('jadwal_praktek');
+            
+            return $query->result_array();
+        }
+
+        public function updateDK_JP()
+        {
+            $data = $this->input->post("jam_praktek");
+            $id = $this->input->post('id_praktek');
+            $this->db->set('id_dokter',$id);
+            $this->db->where('jam_praktek',$data);
+            $this->db->update('jadwal_praktek');
+
+        }
     
         public function updateJP(){
             $data = array(
@@ -267,7 +304,8 @@
             if($key == ""){
                 return FALSE;
             }else{
-                $where = "id_jadwal LIKE '%".(int)$key."%' OR jam_praktek LIKE '%".$key."%'";
+                $id = (int)$key;
+                $where = "id_jadwal = $id OR jam_praktek LIKE '".$key."' OR id_dokter LIKE '".$key."'";
                 $this->db->from('jadwal_praktek');
                 $this->db->where($where);
                 $query = $this->db->get();  
@@ -341,7 +379,7 @@
         }
 
         public function generateidinfo($data){
- 
+            $last = 0;
             foreach ($data as $key ) {
                 $last = $key['id_informasi'];
             }

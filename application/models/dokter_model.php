@@ -15,15 +15,16 @@ class dokter_model extends CI_Model{
 	public function login_dokter($data) {
 		//check if data (consist of username and password) exist/found in db, return true / false
 		$this->db->where('username',$data['username']);
-		$this->db->where('password',$data['password']);
+		//$this->db->where('password',$data['password']);
         $query = $this->db->get('dokter');
 		if($query->num_rows() > 0){
-			return true;
+			return $query->row_array();
 		}else{
 			return false;
 		}
 	}
-	public function view_jadwal(){
+	public function view_jadwal($id){
+		$this->db->where('id_dokter',$id);
 		return $this->db->get('jadwal_praktek')->result_array();
 	}
 

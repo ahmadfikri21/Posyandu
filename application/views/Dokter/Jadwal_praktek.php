@@ -11,7 +11,7 @@
             </tr>
             </thead>
             <tbody>
-            <?=
+            <?php
             $count=1;
             foreach($jadwal as $key){
                 echo "<tr><td>".$count."</td>";

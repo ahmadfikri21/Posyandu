@@ -3,7 +3,7 @@
 
 <h1>Formulir Pemeriksaan</h1>
 <?php echo form_open('Dokter/input_hasil_laporan/'.$id_riwayat) ?>
-<form action="" >
+
   <div class="form-group">
     <label for="exampleFormControlInput1">Nama</label>
     <input  class="form-control form-input-dk" id="exampleFormControlInput1"  value="<?=$nama?>" readonly>

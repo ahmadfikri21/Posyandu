@@ -21,18 +21,25 @@ class Dokter extends CI_Controller
     {
         $data['username'] = $this->input->post('username');
 		$data['password'] = $this->input->post('password');
-        
-		if($this->dokter_model->login_dokter($data)){
-			$this->session->set_userdata('username', $this->input->post('username'));
-            $this->session->set_userdata('password', $this->input->post('password'));
-            redirect('Dokter/homepage');
+       $user =$this->dokter_model->login_dokter($data); 
+ 
+		if($user){
+            if (password_verify($data['password'], $user['password'])){
+                $this->session->set_userdata('username', $this->input->post('username'));
+                $this->session->set_userdata('password', $this->input->post('password'));
+                redirect('Dokter/homepage');
+            }else{
+                $this->session->set_flashdata('message','Salah Password'); 
+                $this->session->flashdata('message');
+                redirect('Dokter/index');
+            }
            
 		}else{
          
             $this->session->set_flashdata('message','Salah Username Atau Password'); 
             $this->session->flashdata('message');
             redirect('Dokter/index');
-            redirect();
+       
 		}
     }
     public function homepage()
@@ -62,19 +69,22 @@ class Dokter extends CI_Controller
         $data1['dataprofile']=$this->dokter_model->get_profile($username);
         $data1=$data1['dataprofile'][0]; 
         // headernya
-        $data['jadwal']=$this->dokter_model->view_jadwal();
+        $data['jadwal']=$this->dokter_model->view_jadwal($data1['id_dokter']);
         
         $this->load->view("templates/dokter/headerProfile",$data1);
         $this->load->view("Dokter/Jadwal_praktek",$data);    
         $this->load->view("templates/Dokter/footerHome");
     }
 
-    public function inputlaporan(){ 
-        $data = substr(current_url(), strrpos(current_url(), '/') + 1);
+    public function inputlaporan($data){ 
+        // headernya
+        $username = $this->session->userdata('username');
+        $data1['dataprofile']=$this->dokter_model->get_profile($username);
+        $data1=$data1['dataprofile'][0]; 
+        // headernya
         $data = $this->dokter_model->get_riwayat_byid($data);
         $data = $data[0];
-       
-        $this->load->view("templates/dokter/headerProfile",$data);
+        $this->load->view("templates/dokter/headerProfile",$data1);
         $this->load->view("Dokter/inputlaporan",$data);
         $this->load->view("templates/dokter/footerHome");
     }
@@ -122,7 +132,6 @@ class Dokter extends CI_Controller
         $datahead = $data[0];
         $key = $this->input->post('search');
         $data['value'] = $this->dokter_model->searchDK($key);
-        //var_dump($data['value']);
         if($this->dokter_model->searchDK($key)){
             $data['value'] = $this->dokter_model->searchDK($key);
             $dat['value'][0] = $data['value'][0];
@@ -136,6 +145,8 @@ class Dokter extends CI_Controller
         $this->load->view("Dokter/daftarpasien",$dat);
         $this->load->view("templates/dokter/footerHome");
     }
+
+
 
     // public function uploadFoto(){
     //     if($this->session->)
