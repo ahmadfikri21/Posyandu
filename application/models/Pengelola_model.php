@@ -425,7 +425,10 @@
     }
 
         public function getReview(){
-            $query = $this->db->get('review');
+            $this->db->from('review');
+            $this->db->order_by('tgl_dibuat','DESC');
+            $query = $this->db->get();
+            
             return $query->result_array();
         }
 
