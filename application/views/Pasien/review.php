@@ -40,9 +40,11 @@
                                 <a class="btn btn-danger btn-user float-right" href="<?php echo base_url(); ?>pasien/riwayat">
                                     Batal
                                 </a>
+
                             </form>
                             <hr>
-
+                            <div class="review">
+                            </div>
                         </div>
                     </div>
                 </div>
