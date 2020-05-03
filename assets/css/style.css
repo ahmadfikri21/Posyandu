@@ -570,6 +570,17 @@ footer p{/* mengatur tulisan di footer */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-color: rgba(58, 63, 67, 0.87);
 }
+.cd-ttgkami{
+
+    display: flex;
+}
+.team-dk{
+    background:url('../css/img/teamfoto.jpg');
+    height: 80%;
+    width: 100%;
+    padding-top: 1%;
+
+}
 
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
 .container-body-pengelola{

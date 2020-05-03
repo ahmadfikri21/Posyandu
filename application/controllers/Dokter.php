@@ -157,6 +157,15 @@ class Dokter extends CI_Controller
         $this->load->view("templates/dokter/footerHome");
     }
 
+    public function tentangkami()   
+    {
+        $username = $this->session->userdata('username');
+        $datahead=$this->dokter_model->get_profile($username);
+        $this->load->view("templates/dokter/headerProfile",$datahead[0]);
+        $this->load->view("Dokter/tentangkami");
+        $this->load->view("templates/dokter/footerHome");
+    }
+
 
 
     // public function uploadFoto(){
