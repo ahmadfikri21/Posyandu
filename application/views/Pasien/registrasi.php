@@ -52,7 +52,7 @@
                             </form>
                             <hr>
 
-                            <div class="text-center">
+                            <div class="text-center regis">
                                 <a class="small" href="<?php echo base_url(); ?>Homepage/login">Sudah punya akun? login disini!</a>
                             </div>
                         </div>
