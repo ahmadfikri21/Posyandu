@@ -10,7 +10,7 @@
     <header>
         <hgroup>
             <h3> <a class="navbar-brand" href="#"><img class="nav-logo-dk"  src="<?= base_url('/assets/css/img/Logo_Dokter.png')?>" 
-                alt="Logo" > </a><a class="navbar-brand nav-txt-color-dk" href="#">Integrated Healthcare</a></h3>
+                alt="Logo" > </a><a class="navbar-brand nav-txt-color-dk" href="<?php echo base_url() ?>Homepage">Integrated Healthcare</a></h3>
         </hgroup>
     </header>
 

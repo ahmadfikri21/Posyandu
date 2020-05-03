@@ -21,8 +21,13 @@
 
 .navbar-nav li .dropdown-menu{
     background:#0C7B93;
-    border-radius: 0;
-    
+    border: 0ch;
+    position:relative;   
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: #0C7B93;
 }
 
 .navbar-nav li .dropdown-menu a{
