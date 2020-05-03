@@ -9,8 +9,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->load->database(); 
         } 
         public function index(){
+            $user = $this->session->userdata('userdata');
             $data['informasi'] = $this->Pasien_model->get_informasi();
-            $data['user'] = $this->session->userdata('userdata');
+            $data['user'] = $user;
+            $data['praktek'] = $this->Pasien_model->getPasienRiwayat($user['username']);
             
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/homepage',$data);
@@ -56,7 +58,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->form_validation->set_rules('nama','Nama','required');
             $this->form_validation->set_rules('tanggal','Tanggal','required');
             $this->form_validation->set_rules('jamP','JamP','required');
-            $this->form_validation->set_rules('dokter','Dokter','required');
             $this->form_validation->set_rules('lahir','Lahir','required');
             $this->form_validation->set_rules('katP','KatP','required');  
 
@@ -71,13 +72,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $this->load->view('Pasien/daftar_praktek',$data);
                 $this->load->view('templates/Pasien/footerPasien');
             }else{
-                $nama = $this->Pasien_model->get_idDokter($this->input->post('dokter'));
+                $id_dokter = $this->Pasien_model->get_jam_praktek($this->input->post('jamP'));
                 $id_pasien = $this->Pasien_model->get_idPasien();
 
                 $this->Pasien_model->daftarPraktek($user['username']);
-                $this->Pasien_model->daftarPraktekRiwayat($nama,$id_pasien);
-                $this->session->set_flashdata('flash','ditambah');
-                $this->session->flashdata('flash');
+                $this->Pasien_model->daftarPraktekRiwayat($id_dokter['id_dokter'],$id_pasien);
+                $this->session->set_flashdata('success','<div class="alert alert-success" role="success">Pasien Berhasil di daftarkan!</div>');
                 redirect('Pasien/daftar_praktek');
             }
         }

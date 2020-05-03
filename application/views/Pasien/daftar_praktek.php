@@ -4,6 +4,7 @@
 			<h2 class="jumbotron text-center" style="background-color: #00A8CC; color: white;margin-bottom: 0">Formulir Pendaftaran Praktek</h2>
 		</div>
 		<div class="container-fluid" style="background-color: white; min-width: 100%;min-height: 100%;margin: 0 auto">
+		<?php echo $this->session->flashdata('success') ?>
 		<?php echo validation_errors() ?>
 			<?php echo form_open('Pasien/daftar_praktek') ?>
 				<div class="form-group">
@@ -20,15 +21,6 @@
 						<option value="">Jam praktek</option>
 						<?php foreach($jamP as $row){ ?>
 						<option value="<?php echo $row->jam_praktek; ?>"><?php echo $row->jam_praktek; ?></option>';
-						<?php } ?>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="Dokter">Dokter</label>
-					<select class="form-control" name="dokter">
-						<option value="">Pilih Dokter</option>
-						<?php foreach($dokter as $row){ ?>
-						<option value="<?php echo $row->nama; ?>"><?php echo $row->nama; ?></option>';
 						<?php } ?>
 					</select>
 				</div>

@@ -178,23 +178,34 @@ class Pasien_model extends CI_Model
     }
 
     public function get_idPasien(){
-        $query =$this->db->select('id_pasien')->order_by('id_pasien',"desc")->limit(1)->get('pasien')->row();
+        $sql= "SELECT AUTO_INCREMENT as AI
+            FROM  INFORMATION_SCHEMA.TABLES
+            WHERE TABLE_SCHEMA = 'db_posyandu'
+            AND   TABLE_NAME   = 'pasien'";
 
-        $this->db->select('id_pasien');
-        $this->db->from('pasien');
-        $this->db->order_by('id_pasien','DESC');
-        $this->db->limit(1);
+        $query = $this->db->query($sql);
+        // $this->db->select('id_pasien');
+        // $this->db->from('pasien');
+        // $this->db->order_by('id_pasien','DESC');
+        // $this->db->limit(1);
 
-        $query = $this->db->get();
+        // $query = $this->db->get();
 
-        if ($query->num_rows() > 0) {
-            return $query->row()->id_pasien + 1;
-        }
+        // if ($query->num_rows() > 0) {
+        //     return $query->row()->id_pasien + 1;
+        // }
 
-        return false;
+        return $query->row()->AI;
     }
 
-    public function get_jam_praktek(){
+    public function get_jam_praktek($jam_praktek = FALSE){
+        if($jam_praktek != FALSE){
+            $this->db->select('id_dokter');
+            $this->db->from('jadwal_praktek');
+            $this->db->where('jam_praktek = "'.$jam_praktek.'"');
+            $query = $this->db->get();
+            return $query->row_array();
+        }
         $query = $this->db->query('SELECT jam_praktek FROM jadwal_praktek');
         return $query->result();
     }
@@ -261,6 +272,15 @@ class Pasien_model extends CI_Model
         $this->db->where('username',$username);
         $this->db->update('user',$data);
         return $username;
+    }
+
+    public function getPasienRiwayat($username){
+        $this->db->from('pasien');
+        $this->db->join('riwayat','pasien.id_pasien = riwayat.id_pasien');
+        $this->db->where('pendaftar = "'.$username.'" and status = 0 ');
+        $this->db->order_by('pasien.tanggal','desc');
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
 }

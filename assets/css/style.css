@@ -149,6 +149,14 @@ footer p{/* mengatur tulisan di footer */
     overflow: auto;
 }
 
+.status-pasien-homepage{
+    margin-top:1em;
+    width:100%;
+    padding:2em;
+    background: white;
+    opacity: 0.83;
+}
+
 .list-riwayat{/*style list riwayat*/
     border:1px solid black;
     border-radius:10px;

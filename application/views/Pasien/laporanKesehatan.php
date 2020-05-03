@@ -9,7 +9,7 @@
                     <small>Diperiksa Oleh <strong>Dr. <?= $laporan['nm_dokter'] ?></strong></small>
                 </div>
                 <div class="kolom">
-                    <a href="javascript:void(0)" onClick="printFunc('area-print')"><img src="<?php echo base_url() ?>assets/css/img/icon-pdf.png"></a>
+                    <a href="javascript:void(0)" onClick="printFunc('area-print')"><img src="<?php echo base_url() ?>assets/css/img/icon-pdf.png" style="width:80px; height:70px;"></a>
                 </div>
             </div>
         </div>
