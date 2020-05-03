@@ -49,7 +49,6 @@
                 
     
     <section class="help-daftarpasien-dk">
-        <a href="<?=site_url('h')?>" >| Bantuan</a> 
-        <a href="<?=site_url('Homepage/tentangkami')?>" >Tentang Kami |</a>
+        <a href="<?=site_url('Dokter/bantuan')?>" > Bantuan</a> 
     </section>   
 </section>
