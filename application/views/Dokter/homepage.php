@@ -15,6 +15,13 @@
             <a class="btn btn-secondary btn-lg btn-home-dk" href="<?php echo site_url('Dokter/logout');?>"> 
             Logout </a>
             </center>
-   
+            <div class="bantuan-hm">
+                <section class="help-daftarpasien-dk">
+                    <a href="<?=site_url('Dokter/bantuan')?>" > Bantuan</a> 
+                </section>   
+            </div>
+
 </section>
+
+   
 </div>
