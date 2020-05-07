@@ -424,6 +424,7 @@ a.link-pagination{
     background: url('../css/img/back_doctor_hm2.jpg');
     height: 100%; 
     padding: 30px;
+    margin-bottom: 20px;
 }
 .section-hm-dk{
     background: white;
@@ -508,11 +509,12 @@ a.link-pagination{
 
 
 .help-daftarpasien-dk a{
-    color: gray;
+    color: whitesmoke;
     font-size: 20px;
     float: right;
-    background:transparent;
-    
+    background:darkgray;
+    border-radius: 5px;
+    padding: 4px;
 }
 .con-input-dk{
     
@@ -612,6 +614,10 @@ a.link-pagination{
     width: 100%;
     padding-top: 1%;
 
+}
+.bantuan-hm{
+    margin-top: 100px;
+    
 }
 
 /*----------------------------------------------------CSS PENGELOLA--------------------------------------------------- */   
