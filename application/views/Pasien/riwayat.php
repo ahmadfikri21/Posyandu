@@ -14,7 +14,7 @@
                 <input type="submit" value="Cari" class="btn btn-info">
             </div>
             </form>
-            <div class="scroll-list-riwayat">
+            <!-- <div class="scroll-list-riwayat"> -->
                 <?php foreach ($riwayat as $r) : ?>
                     <div class="list-riwayat">
                         <h3><?php echo $r['nama'] ?></h3>
@@ -24,6 +24,9 @@
                         <a class="btn btn-info btn-small" href="<?php echo site_url('/pasien/lapKesehatan/' . $r['id_riwayat']); ?>">Lihat Hasil</a>
                     </div>
                 <?php endforeach; ?>
+            <!-- </div> -->
+            <div class="link-pagination">
+                <?php echo $this->pagination->create_links(); ?> <!-- untuk menampilkan link pagination -->
             </div>
         </div>
     </div>

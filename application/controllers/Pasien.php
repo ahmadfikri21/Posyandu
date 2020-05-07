@@ -19,10 +19,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->load->view('templates/Pasien/footerPasien');  
         }
 
-        public function riwayat(){
+        public function riwayat($offset = 0){
             $user = $this->session->userdata('userdata');
             $data['riwayat'] = $this->Pasien_model->get_riwayat($user['username']);
             $data['user'] = $user['username'];
+
+            // pagination
+            $config['base_url'] = base_url() . 'Pasien/riwayat/'; 
+            $config['total_rows'] = count($data['riwayat']); 
+            $config['per_page'] = 2; 
+            $config['uri_segment'] = 3; 
+            $config['attributes'] = array('class' => 'link-pagination'); 
+            
+            $this->pagination->initialize($config);
+
+            $data['riwayat'] = array_splice($data['riwayat'], $offset, $config['per_page']);
 
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/riwayat',$data);
