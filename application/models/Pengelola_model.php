@@ -220,7 +220,10 @@
         
         }   
         public function getInfo(){
-        return $this->db->get('informasi')->result_array();
+        $this->db->from('informasi');
+        $this->db->order_by('tgl_dibuat','DESC');
+    
+        return $this->db->get()->result_array();
         }
    
 

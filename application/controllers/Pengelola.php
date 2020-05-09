@@ -109,10 +109,22 @@
         }
 
         //----------------------------------------------------PASIEN-------------------------------------------------
-        public function kelolapasien()
+        public function kelolapasien($offset = 0)
         {
             $data['isiPasien'] = $this->Pengelola_model->get_Pasien();
            
+            //pagination
+            $config['base_url'] = base_url() . 'Pengelola/kelolaPasien'; 
+            $config['total_rows'] = count($data['isiPasien']); 
+            $config['per_page'] = 10; 
+            $config['uri_segment'] = 3; 
+            $config['attributes'] = array('class' => 'link-pagination'); 
+                
+            $this->pagination->initialize($config);
+
+            $data['isiPasien'] = array_splice($data['isiPasien'],$offset,$config['per_page']);
+
+
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/kelolaPasien',$data);
             $this->load->view("templates/pengelola/footerPengelola");
@@ -278,8 +290,19 @@
     
 //----------------------------------------------------Pemeriksaan-------------------------------------------------
 
-        public function pemeriksaan(){
+        public function pemeriksaan($offset = 0){
             $data['pemeriksa'] = $this->Pengelola_model->get_Pemeriksaan();
+
+            //pagination
+            $config['base_url'] = base_url() . 'Pengelola/pemeriksaan'; 
+            $config['total_rows'] = count($data['pemeriksa']); 
+            $config['per_page'] = 10; 
+            $config['uri_segment'] = 3; 
+            $config['attributes'] = array('class' => 'link-pagination'); 
+                
+            $this->pagination->initialize($config);
+
+            $data['pemeriksa'] = array_splice($data['pemeriksa'],$offset,$config['per_page']);
 
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/kelolaPemeriksaan',$data);
@@ -320,12 +343,23 @@
 
     
 //----------------------------------------------------homepage Pengelola-------------------------------------------------
-     public function informasi(){
-         $data['informasi']=$this->pengelola_model->getInfo();
-        
-         $this->load->view("templates/pengelola/headerPengelola");
-         $this->load->view('Pengelola/informasi',$data);
-         $this->load->view("templates/pengelola/footerPengelola");
+     public function informasi($offset = 0){
+        $data['informasi']=$this->pengelola_model->getInfo();
+
+        //pagination
+        $config['base_url'] = base_url() . 'Pengelola/informasi'; 
+        $config['total_rows'] = count($data['informasi']); 
+        $config['per_page'] = 10; 
+        $config['uri_segment'] = 3; 
+        $config['attributes'] = array('class' => 'link-pagination'); 
+            
+        $this->pagination->initialize($config);
+
+        $data['informasi'] = array_splice($data['informasi'],$offset,$config['per_page']);
+
+        $this->load->view("templates/pengelola/headerPengelola");
+        $this->load->view('Pengelola/informasi',$data);
+        $this->load->view("templates/pengelola/footerPengelola");
      }
 
      
@@ -364,8 +398,19 @@
     }
 //----------------------------------------------------Review--------------------------------------------------------------
 
-    public function review(){
+    public function review($offset = 0){
         $data['review'] = $this->Pengelola_model->getReview();
+
+        //pagination
+        $config['base_url'] = base_url() . 'Pengelola/review'; 
+        $config['total_rows'] = count($data['review']); 
+        $config['per_page'] = 10; 
+        $config['uri_segment'] = 3; 
+        $config['attributes'] = array('class' => 'link-pagination'); 
+            
+        $this->pagination->initialize($config);
+
+        $data['review'] = array_splice($data['review'],$offset,$config['per_page']);
 
         $this->load->view("templates/pengelola/headerPengelola");
         $this->load->view('Pengelola/kelolaReview',$data);

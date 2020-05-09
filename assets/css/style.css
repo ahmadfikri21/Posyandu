@@ -19,10 +19,17 @@
     margin-right: 2em;
 }
 
+.dropdown{
+    display: inline-block;
+}
+
 .navbar-nav li .dropdown-menu{
     background:#0C7B93;
     border: 0ch;
-    position:relative;   
+    display:none;
+    position: absolute;
+    z-index: 1;
+    min-width:100px;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -34,6 +41,10 @@
     padding:1em;
 }
 
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+
 .container-body{ /* mengatur background homepage menggunakan container */
     background:url('../css/img/background-bayi.jpg');
 
@@ -42,6 +53,7 @@
 
 
 .container-welcome{ /*Container selamat datang homepage*/
+    margin-top:1em;
     width:100%;
     padding:2em;
     background: white;
@@ -219,7 +231,6 @@ footer p{/* mengatur tulisan di footer */
 
 .nav-pasien{
     margin:0;
-    margin-bottom: 100px;
 }
 
 .login{
@@ -292,6 +303,7 @@ footer p{/* mengatur tulisan di footer */
 
 .link-pagination{
     margin:30px 0;
+    text-align:center;
 }
 
 .link-pagination strong{

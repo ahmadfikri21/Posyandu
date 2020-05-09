@@ -14,7 +14,7 @@
                     <a class="navbar-brand nav-txt-color" href="<?php echo base_url(); ?>Pasien/">Posyandu Online</a>
                 </div>
                 <ul class="nav navbar-nav nav-txt-color navbar-right">
-                    <li><a href="<?php echo base_url(); ?>Pasien/">Home</a></li>
+                    <li><a href="<?php echo base_url(); ?>Pasien/index">Home</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/daftar_praktek">Daftar Praktek</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/riwayat">Riwayat</a></li>
                     <li><a href="<?php echo base_url(); ?>Pasien/profil">Profil</a></li>

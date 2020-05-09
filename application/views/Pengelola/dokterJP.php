@@ -15,6 +15,7 @@
                     <th>No.</th>
                     <th>ID Jadwal</th>
                     <th>Jam Praktek</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

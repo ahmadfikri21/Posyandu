@@ -17,6 +17,7 @@
                     <th>Nama</th>
                     <th>Username</th>
                     <th>no Telp</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>

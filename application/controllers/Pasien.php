@@ -8,12 +8,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
             $this->load->model('Pasien_model');
             $this->load->database(); 
         } 
-        public function index(){
+        public function index($offset = 0){
             $user = $this->session->userdata('userdata');
             $data['informasi'] = $this->Pasien_model->get_informasi();
             $data['user'] = $user;
             $data['praktek'] = $this->Pasien_model->getPasienRiwayat($user['username']);
+
+            //pagination
+            $config['base_url'] = base_url() . 'Pasien/index'; 
+            $config['total_rows'] = count($data['informasi']); 
+            $config['per_page'] = 3; 
+            $config['uri_segment'] = 3; 
+            $config['attributes'] = array('class' => 'link-pagination'); 
             
+            $this->pagination->initialize($config);
+            
+            $data['informasi'] = array_splice($data['informasi'],$offset,$config['per_page']);
+
             $this->load->view('templates/Pasien/headerPasien');
             $this->load->view('Pasien/homepage',$data);
             $this->load->view('templates/Pasien/footerPasien');  

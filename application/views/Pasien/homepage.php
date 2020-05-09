@@ -15,10 +15,13 @@
         </ul>
     </div>
     <section class="container-isi">
-        <h2><center>Informasi Terbaru</center></h2>
+        <h2><center><strong>Informasi Posyandu</strong></center></h2>
         <?php foreach($informasi as $info): ?>
         <small> Tanggal Dibuat <Strong><?= $info['tgl_dibuat'] ?></Strong></small>
         <p><?php echo $info['isi'] ?></p>
         <?php endforeach; ?>
+        <div class="link-pagination">
+                <?php echo $this->pagination->create_links(); ?> <!-- untuk menampilkan link pagination -->
+        </div>
     </section>
 </section>

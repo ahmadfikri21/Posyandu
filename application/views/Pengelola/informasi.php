@@ -16,6 +16,7 @@
                     <th>ID Informasi</th>
                     <th>Isi Informasi</th>
                     <th>Tanggal dibuat</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,5 +34,8 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <div class="link-pagination">
+                <?php echo $this->pagination->create_links(); ?> <!-- untuk menampilkan link pagination -->
+        </div>
     </div>
 </div>

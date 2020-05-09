@@ -129,7 +129,9 @@ class Pasien_model extends CI_Model
     }
 
     public function get_informasi(){
-        $query = $this->db->get('informasi');
+        $this->db->from('informasi');
+        $this->db->order_by('tgl_dibuat','DESC');
+        $query = $this->db->get();
 
         return $query->result_array();
     }
