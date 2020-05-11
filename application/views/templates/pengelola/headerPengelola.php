@@ -16,6 +16,7 @@
                 <ul class="nav navbar-nav nav-txt-color navbar-right">
                     <li><a href="<?php echo base_url(); ?>pengelola/informasi">informasi</a></li>
                     <li><a href="<?php echo base_url(); ?>pengelola/dokter">Dokter</a></li>
+                    <li><a href="<?php echo base_url(); ?>pengelola/user">User</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/kelolapraktek">Jadwal Praktek</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/kelolapasien">Pasien</a></li>
                     <li><a href="<?php echo base_url() ?>pengelola/pemeriksaan">Pemeriksaan</a></li>

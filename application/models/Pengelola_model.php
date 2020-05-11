@@ -202,10 +202,55 @@
             }
         }
 
-        public function get_User(){
-            $query = $this->db->get('user');
+        public function get_User($id_user = NULL){
+            if($id_user != NULL){
+                $query = $this->db->get_where('user',array('id_user' => $id_user));
+                return $query->row_array();
+            }
 
+            $query = $this->db->get('user');
+            
             return $query->result_array();
+        }
+
+        public function updateUS(){
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'username' => $this->input->post('username'),
+                'email' => $this->input->post('email')
+            );
+           
+            $this->db->where('id_user',$this->input->post('id_user'));
+            return $this->db->update('user',$data);
+        }
+
+        public function tambahUS(){
+            $data = array(
+                'nama' => $this->input->post('nama'),
+                'username' => $this->input->post('username'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),   
+                'email' => $this->input->post('email')  
+            );
+           
+            return $this->db->insert('user',$data);
+        }
+
+        public function hapusUS($id_user){
+            return $this->db->delete('user',array('id_user' => $id_user));
+        }
+
+        public function searchUS($key){
+            if($key == ""){
+                return FALSE;
+            }else{
+                $where = "id_user LIKE '%".$key."%' OR nama LIKE '%".$key."%' OR username LIKE '%".$key."%' OR email 
+                LIKE '%".$key."%'";
+                $this->db->from('user');
+                $this->db->where($where);
+                $query = $this->db->get();
+
+                return $query->result_array();
+            }
         }
 
         public function get_praktek(){

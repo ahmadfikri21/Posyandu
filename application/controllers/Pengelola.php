@@ -35,6 +35,8 @@
             redirect('Pengelola/index');
         }
 
+        ////////////////////////////////////////// DOKTER ////////////////////////////////////////////////////////////
+
         public function dokter(){
             $data['isiDokter'] = $this->Pengelola_model->get_Dokter();
 
@@ -105,6 +107,71 @@
 
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view('Pengelola/kelolaDokter',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        //----------------------------------------------------User---------------------------------------------------
+
+        public function user(){
+            $data['isiUser'] = $this->Pengelola_model->get_User();
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view("pengelola/kelolaUser",$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function editUser($id_user){
+            $data['user'] = $this->Pengelola_model->get_User($id_user);
+            
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/editUser',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+        
+        public function updateUS(){
+            $this->Pengelola_model->updateUS();
+            redirect('pengelola/user');
+        }
+
+        public function tambahUser(){            
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/tambahUser');
+            $this->load->view("templates/pengelola/footerPengelola");
+        }
+
+        public function tambahUS(){
+            $this->form_validation->set_rules('nama','Nama','required');
+            $this->form_validation->set_rules('username','Username','required');
+            $this->form_validation->set_rules('password','Password','required');
+            $this->form_validation->set_rules('password2','Confirm Password','matches[password]','required');
+            $this->form_validation->set_rules('email','Email','required');
+            
+            if($this->form_validation->run()){
+                $this->Pengelola_model->tambahUS();
+                redirect('Pengelola/user');
+            }else{
+                $this->load->view("templates/pengelola/headerPengelola");
+                $this->load->view('Pengelola/tambahUser');
+                $this->load->view("templates/pengelola/footerPengelola");
+            }
+        }
+
+        public function hapusUser($id_user){
+            $this->Pengelola_model->hapusUS($id_user);
+            redirect('Pengelola/user');            
+        }
+
+        public function searchUS(){
+            $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchUS($key)){
+                $data['isiUser'] = $this->Pengelola_model->searchUS($key);
+            }else{
+                redirect('Pengelola/user');
+            }
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/kelolaUser',$data);
             $this->load->view("templates/pengelola/footerPengelola");
         }
 
