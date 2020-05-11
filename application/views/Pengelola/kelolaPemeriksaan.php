@@ -18,6 +18,7 @@
                     <th>Jam Diperiksa</th>
                     <th>Hasil Pemeriksaan</th>
                     <th>Status Pemeriksaan</th>
+                    <th>Pendaftar</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -39,8 +40,9 @@
                     <td><?= $data['jam_praktek'] ?></td>
                     <td><?= $data['hasil_pemeriksaan'] ?></td>
                     <td><?= $status ?></td>
+                    <td><?= $data['pendaftar'] ?></td>
                     <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/editPemeriksaan/' . $data['id_riwayat']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusPemeriksaan/' . $data['id_riwayat']); ?>">Hapus</a></td>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusPemeriksaan/' . $data['id_riwayat']); ?>" onclick="return konfirmasiDelete()">Hapus</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

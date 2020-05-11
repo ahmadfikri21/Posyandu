@@ -26,7 +26,7 @@
                     <td><?= $key['id_jadwal'] ?></td>
                     <td><?= $key['jam_praktek'] ?></td>
                      <td>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteDK_JP/' . $key['id_jadwal']); ?>">Hapus</a>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteDK_JP/' . $key['id_jadwal']); ?> " onclick="return konfirmasiDelete()">Hapus</a>
                       
                         </td> 
                 </tr>

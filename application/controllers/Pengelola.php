@@ -278,7 +278,7 @@
             $data['dokter'] = $this->Pengelola_model->searchDK($id_dokter);
             $this->load->view("templates/pengelola/headerPengelola");
             $this->load->view("Pengelola/dokterJP",$data);
-            $this->load->view("templates/dokter/footerHome");
+            $this->load->view("templates/Pengelola/footerPengelola");
         }
         public function tambahlagiDKJP()
         {
@@ -396,6 +396,21 @@
         $this->pengelola_model-> updateINFO();
         redirect('Pengelola/informasi');
     }
+
+    public function searchInfo(){
+        $key = $this->input->post('cari');
+            
+            if($this->Pengelola_model->searchInfo($key)){
+                $data['informasi'] = $this->Pengelola_model->searchInfo($key);
+            }else{
+                redirect('Pengelola/informasi');
+            }
+
+            $this->load->view("templates/pengelola/headerPengelola");
+            $this->load->view('Pengelola/informasi',$data);
+            $this->load->view("templates/pengelola/footerPengelola");
+    }
+
 //----------------------------------------------------Review--------------------------------------------------------------
 
     public function review($offset = 0){

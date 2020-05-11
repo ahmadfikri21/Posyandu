@@ -1,7 +1,7 @@
 <div class="container">
     <div class="panel-kelola-dokter">
         <h1>Tabel Kelola Informasi</h1>
-        <?php echo form_open('pengelola/searchDK') ?>
+        <?php echo form_open('pengelola/searchInfo') ?>
         <div class="form-group form-inline">
             <label>cari</label>
             <input type="text" name="cari" class="form-control" placeholder="cari">
@@ -29,7 +29,7 @@
                     <td><?= $dokter['tgl_dibuat'] ?></td>
     
                     <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/editINFO/' . $dokter['id_informasi']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteINFO/' . $dokter['id_informasi']); ?>">Hapus</a></td>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteINFO/' . $dokter['id_informasi']); ?>" onclick="return konfirmasiDelete()">Hapus</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

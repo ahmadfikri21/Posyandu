@@ -32,7 +32,7 @@
                      <td>
                          
                          <a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/editDokter/' . $key['id_dokter']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusDokter/' . $key['id_dokter']); ?>">Hapus</a>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusDokter/' . $key['id_dokter']); ?>" onclick="return konfirmasiDelete()">Hapus</a>
                         <a class="btn btn btn-info btn-small" href="<?php echo site_url( '/Pengelola/dokterJP/' .$key['id_dokter']); ?>">Jadwal Praktek</a>
                         </td> 
                 </tr>

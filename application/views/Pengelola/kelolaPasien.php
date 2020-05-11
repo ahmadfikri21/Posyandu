@@ -34,7 +34,7 @@
                     <td><?= $pasien['tgl_lahir'] ?></td>
                     <td><?= $pasien['kategori'] ?></td>
                     <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/editPasien/' . $pasien['id_pasien']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusPasien/' . $pasien['id_pasien']); ?>">Hapus</a></td>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/hapusPasien/' . $pasien['id_pasien']); ?>" onclick="return konfirmasiDeletePasien()">Hapus</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

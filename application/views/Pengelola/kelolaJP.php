@@ -29,7 +29,7 @@
                     <td><?php if($praktek['id_dokter']==''){echo 'Kosong';}else{echo $praktek['id_dokter'];} ?></td>
                     <td><?= $praktek['jam_praktek'] ?></td>
                     <td><a class="btn btn-info btn-small" href="<?php echo site_url('/Pengelola/updateJP/' . $praktek['id_jadwal']); ?>">Edit</a>
-                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteJP/' . $praktek['id_jadwal']); ?>">Hapus</a></td>
+                        <a class="btn btn-danger btn-small" href="<?php echo site_url('/Pengelola/deleteJP/' . $praktek['id_jadwal']); ?>" onclick="return konfirmasiDelete()">Hapus</a></td>
                 </tr>
                 <?php endforeach; ?>  
         </table>  

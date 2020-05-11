@@ -164,6 +164,10 @@
         }
 
         public function hapusPS($id_pasien){
+            $sql = $this->db->get_where('riwayat',array('id_pasien' => $id_pasien));
+            if($sql->num_rows() > 0){
+                $this->db->delete('riwayat',array('id_pasien' => $id_pasien));
+            }
             return $this->db->delete('pasien',array('id_pasien' => $id_pasien));
         }
 
@@ -369,8 +373,14 @@
             if($cari == ""){
                 return FALSE;
             }else{
-                $where = "nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori='%" . $cari . "%' OR
-                hasil_pemeriksaan LIKE '%".$cari."%' OR status LIKE '%".$cari."%' ";
+                $status = NULL;
+                if($cari == "Belum Diperiksa"){
+                    $status = 0;
+                }else if($cari == "Telah Diperiksa"){
+                    $status = 1;
+                }
+                $where = "nama LIKE '%" . $cari . "%' OR tanggal LIKE '%" . $cari . "%' OR kategori LIKE '%" . $cari . "%' OR
+                hasil_pemeriksaan LIKE '%".$cari."%' OR status LIKE '%".$status."%' OR jam_praktek LIKE '%".$cari."%' ";
                 $this->db->from('pasien');
                 $this->db->join('riwayat', 'pasien.id_pasien = riwayat.id_pasien');
                 $this->db->where($where);
@@ -412,6 +422,20 @@
             $this->db->from('informasi');
             $query = $this->db->get();
             return $query->result_array();
+        }
+
+        public function searchInfo($key){
+            if($key == ""){
+                return FALSE;
+            }else{
+                $where = "id_informasi LIKE '%".$key."%' OR isi LIKE '%".$key."%' OR tgl_dibuat LIKE '%".$key."%'";
+                $this->db->from('informasi');
+                $this->db->where($where);
+                $query = $this->db->get();  
+                
+
+                return $query->result_array();
+            }
         }
 
         public function updateINFO(){

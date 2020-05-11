@@ -636,6 +636,8 @@ a.link-pagination{
 .container-body-pengelola{
         background:url('../css/img/kelola.jpg');
         width: 100%;
+        height:auto;
+        min-height:100%;
 }
 
 .login-panel{
@@ -650,6 +652,7 @@ a.link-pagination{
     background:whitesmoke;
     padding:2em;
     height: auto;
+    min-height: 90%;
 }
 
 .panel-kelola-dokter h1{
