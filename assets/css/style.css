@@ -131,7 +131,34 @@ footer p{/* mengatur tulisan di footer */
     color: white;
 }
 
+.panel-registrasi{
+    padding:2em;
+    background:white;
+    margin-bottom:2em;
+}
+
+.min-height-full{
+    height:auto;
+    min-height:90%;
+}
 /*-------------------------------------------------CSS PASIEN---------------------------------------------------------*/
+
+.panel-review{
+    opacity:0.83;
+    margin-top:1em;
+    padding:2em;
+    background:white;
+    margin-bottom:1em;
+}
+
+.panel-review h5{
+    font-weight:bold;
+}
+
+.panel-review h1{
+    font-weight:bold;
+    text-align: center;
+}
 
 .body-riwayat{
     background:url('../css/img/doctor.jpg');

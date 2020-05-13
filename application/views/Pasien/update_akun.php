@@ -5,6 +5,7 @@
 				Update Profile
 			</h2>
 			<div class="container-fluid" style="background-color: white; min-width: 100%; min-height: 76vh; margin: 0 auto;">
+			<?php echo $this->session->flashdata('flash'); ?>
 				<?php echo form_open('Pasien/update_akun') ?>
 					<div class="form-group" style="margin-top: 20px">
 						<label for="nama">Nama</label>

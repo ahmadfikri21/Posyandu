@@ -3,6 +3,7 @@
         <h1>Ganti Password</h1>
     </div>
     <div class="panel-form-pass">
+    <?php echo $this->session->flashdata('pass-gagal') ?>
     <?php echo form_open('pasien/updatePwd'); ?>
     <?php echo validation_errors() ?>
         <div class="form-group">

@@ -127,7 +127,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             } else {
                 $user2= $this->Pasien_model->update_profile($user['username']);
                 // $this->session->set_userdata('username',$user2);
-                $this->session->set_flashdata('flash','update');
+                $this->session->set_flashdata('flash','<div class="alert alert-success">Profil berhasil di Update!</div>');
                 $this->session->flashdata('flash');
                 $this->load->view('templates/Pasien/headerPasien');
                 $this->load->view('Pasien/update_akun',$data);
@@ -153,8 +153,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 $passDB = $this->Pasien_model->get_PassUser($user['username']);
                 if(password_verify($pass,$passDB)){
                     $this->Pasien_model->updatePwd($user['username']);
-                    redirect('pasien/index');
+                    $this->session->set_flashdata('pass-berhasil','<div class="alert alert-success">Password berhasil di ganti!</div>');
+                    $this->session->flashdata('pass-berhasil');
+                    redirect('pasien/profil');
                 }else{
+                    $this->session->set_flashdata('pass-gagal','<div class="alert alert-danger">Password anda Salah!</div>');
+                    $this->session->flashdata('pass-gagal');
                     redirect('Pasien/updatePass');   
                 }
             }else{

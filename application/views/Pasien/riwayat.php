@@ -1,5 +1,5 @@
 <div class="body-riwayat">
-    <div class="container">
+    <div class="container min-height-full">
         <div class="h1-panel">
             <h1><strong>Riwayat Pemeriksaan <?php echo $user ?></strong></h1>
         </div>
@@ -14,7 +14,7 @@
                 <input type="submit" value="Cari" class="btn btn-info">
             </div>
             </form>
-            <!-- <div class="scroll-list-riwayat"> -->
+            <?php  if($riwayat != NULL): ?>
                 <?php foreach ($riwayat as $r) : ?>
                     <div class="list-riwayat">
                         <h3><?php echo $r['nama'] ?></h3>
@@ -24,7 +24,9 @@
                         <a class="btn btn-info btn-small" href="<?php echo site_url('/pasien/lapKesehatan/' . $r['id_riwayat']); ?>">Lihat Hasil</a>
                     </div>
                 <?php endforeach; ?>
-            <!-- </div> -->
+            <?php else: ?>
+                <h3><center>Belum ada Riwayat Pemeriksaan!</center></h3>
+            <?php endif; ?>
             <div class="link-pagination">
                 <?php echo $this->pagination->create_links(); ?> <!-- untuk menampilkan link pagination -->
             </div>

@@ -1,15 +1,6 @@
-<section class="container-fluid section-color">
-    <div class="container">
-
-        <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Review Pelayanan</h1>
-                            </div>
+    <div class="container min-height-full">
+        <div class="panel-review">
+                            <h1>Review Pelayanan</h1>
                             <?php echo $this->session->flashdata('message'); ?>
 
                             <form class="user" method="post" action="<?php echo base_url('pasien/review'); ?>">
@@ -42,14 +33,5 @@
                                 </a>
 
                             </form>
-                            <hr>
-                            <div class="review">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-    </div>
-</section>
+    </div> 
