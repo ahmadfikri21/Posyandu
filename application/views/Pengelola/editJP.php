@@ -12,7 +12,7 @@
                 <label>Jam Praktek</label>
                 <input type="text" name="jam_praktek" class="form-control"  value="<?=$jam_praktek?>">
             </div>
-            <input type="submit" value="Tambah" class="btn btn-info">
+            <input type="submit" value="Edit" class="btn btn-info">
         <?php echo form_close() ?>
     </div>
 </div>

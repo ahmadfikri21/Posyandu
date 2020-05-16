@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label>Hasil Pemeriksaan</label>
-                <input type="text" class="form-control" value="<?= $pemeriksa['hasil_pemeriksaan'] ?>" name="hasilP">
+                <textarea class="form-control" rows="5" name="hasilP" value="<?= $pemeriksa['hasil_pemeriksaan'] ?>"></textarea>
             </div>
             <input type="submit" class="btn btn-primary" value="Edit">
             <?php form_close() ?>
